@@ -1088,12 +1088,4 @@ lib.CreateLib = function(name,smth)
 	end
 	return toreturn
 end
---return lib
-local tab = lib.AddTab("Test")
-tab.AddDropdown("Nig", "ger", {"Test", "Test"}, function(val)
-	print(val)
-end)
-AddEmpty(tab.Source)
-tab.AddButton("nig","ger", function()
-	print("nigga")
-end)
+return lib
