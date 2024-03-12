@@ -61,12 +61,14 @@ local TextLabel_2 = Instance.new("TextLabel")
 local ImageLabel_2 = Instance.new("ImageLabel")
 local TempTab = Instance.new("ScrollingFrame")
 local UIGridLayout_2 = Instance.new("UIGridLayout")
-local TabList = Instance.new("Frame")
+local TabList = Instance.new("ScrollingFrame")
 local UIGridLayout_3 = Instance.new("UIGridLayout")
 local Tabs = Instance.new("Folder")
 local CTabs = Instance.new("Folder")
 local Script = Instance.new("Script", ImageLabel)
-
+task.spawn(function()
+	while task.wait(0.1) do TabList.CanvasSize = UDim2.new(0, 0,#TabList:GetChildren()+#TabList:GetChildren()/2, 0) end
+end)
 --Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
