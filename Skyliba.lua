@@ -952,6 +952,11 @@ end
 
 function AddSlider(name,tab,callback, maxi,min)
 	local slider = ui.Script.TabTemplates.Slide:Clone()
+	local text = Instance.new("TextLabel", slider)
+	text.Size = UDim2.new(1,0,1,0)
+	text.BackgroundTransparency = 1
+	text.TextColor3 = Color3.new(255,255,255)
+	text.Text = ""
 	slider.Parent = tab
 	task.spawn(function()
 		local max = slider.Max
@@ -1001,6 +1006,7 @@ function AddSlider(name,tab,callback, maxi,min)
 
 					return newValue
 				end
+				text.Text = tostring(range(val))
 				callback(range(val))
 			end
 		end
