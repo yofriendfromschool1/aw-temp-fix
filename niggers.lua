@@ -421,7 +421,7 @@ Drop.Name = "Drop"
 Drop.Parent = Button_2
 Drop.Active = true
 Drop.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Drop.BackgroundTransparency = 0.750
+Drop.BackgroundTransparency = 0
 Drop.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Drop.BorderSizePixel = 0
 Drop.Position = UDim2.new(-0.00333333341, 0, 1.29818165, 0)
@@ -930,7 +930,7 @@ function AddSlider(name,tab,callback, maxi,min)
 			local ViewPortSize = workspace.Camera.ViewportSize
 			return Offset / max.Size
 		end
-		while task.wait() do
+		while task.wait(0.05) do
 			if down == true and lastinp ~= nil then
 				local ap = Vector2.new(max.AbsolutePosition.X, max.AbsolutePosition.Y)
 				--bar.Size = UDim2.new(0, math.clamp(uis:GetMouseLocation().X - ap.X, 0, 161), 1, 0)
@@ -971,7 +971,6 @@ function AddDropdown(name,text,s_table,callback,tab)
 			visible = true
 		end
 	end)
-	dropdown.Button.Drop.Transparency = 0
 	dropdown.Button.Drop.CanvasSize = UDim2.new(0, 0,#s_table+#s_table/2, 0)
 	task.spawn(function()
 		while task.wait() do
