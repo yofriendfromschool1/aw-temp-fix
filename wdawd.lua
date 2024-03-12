@@ -1,8 +1,1066 @@
-local oldtable = table.concat
-table.concat = function(a)
-    print(oldtable(a))
-    return oldtable(a)
+local ScreenGui = Instance.new("ScreenGui")
+local ImageLabel = Instance.new("ImageLabel")
+local UICorner = Instance.new("UICorner")
+local TopBar = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+local Minimize = Instance.new("TextButton")
+local Rot = Instance.new("Frame")
+local Frame = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local Frame_2 = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local Rot_2 = Instance.new("Frame")
+local Frame_3 = Instance.new("Frame")
+local UICorner_4 = Instance.new("UICorner")
+local Frame_4 = Instance.new("Frame")
+local UICorner_5 = Instance.new("UICorner")
+local Close = Instance.new("TextButton")
+local Rot_3 = Instance.new("Frame")
+local Frame_5 = Instance.new("Frame")
+local UICorner_6 = Instance.new("UICorner")
+local Frame_6 = Instance.new("Frame")
+local UICorner_7 = Instance.new("UICorner")
+local TabTemplates = Instance.new("Folder")
+local TTemp = Instance.new("Frame")
+local Toggle = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local Desc = Instance.new("TextLabel")
+local ITemp = Instance.new("Frame")
+local Input = Instance.new("TextBox")
+local UICorner_9 = Instance.new("UICorner")
+local BTemp = Instance.new("Frame")
+local Button = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
+local SectionTemp = Instance.new("Frame")
+local Section = Instance.new("TextLabel")
+local SectionSpacer = Instance.new("Frame")
+local Slide = Instance.new("Frame")
+local Max = Instance.new("TextButton")
+local Bar = Instance.new("Frame")
+local UICorner_11 = Instance.new("UICorner")
+local UIGradient_2 = Instance.new("UIGradient")
+local UICorner_12 = Instance.new("UICorner")
+local DTemp = Instance.new("Frame")
+local Button_2 = Instance.new("TextButton")
+local UICorner_13 = Instance.new("UICorner")
+local Drop = Instance.new("ScrollingFrame")
+local UICorner_14 = Instance.new("UICorner")
+local UIGridLayout = Instance.new("UIGridLayout")
+local Button_3 = Instance.new("TextButton")
+local UICorner_15 = Instance.new("UICorner")
+local TabStuff = Instance.new("Folder")
+local TabTemp = Instance.new("Frame")
+local Button_4 = Instance.new("TextButton")
+local TextLabel_2 = Instance.new("TextLabel")
+local ImageLabel_2 = Instance.new("ImageLabel")
+local TempTab = Instance.new("ScrollingFrame")
+local UIGridLayout_2 = Instance.new("UIGridLayout")
+local TabList = Instance.new("Frame")
+local UIGridLayout_3 = Instance.new("UIGridLayout")
+local Tabs = Instance.new("Folder")
+local Script = Instance.new("Script", ImageLabel)
+local par = game.Players.LocalPlayer.PlayerGui
+if cloneref then
+	par = cloneref(game:GetService("CoreGui"))
+end
+--Properties:
+
+ScreenGui.Parent = par
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageLabel.Parent = ScreenGui
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.180995479, 0, 0.2781955, 0)
+ImageLabel.Size = UDim2.new(0, 550, 0, 300)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=16710334936"
+ImageLabel.ImageColor3 = Color3.fromRGB(89, 89, 89)
+ImageLabel.ImageTransparency = 0.150
+
+UICorner.Parent = ImageLabel
+
+TopBar.Name = "TopBar"
+TopBar.Parent = ImageLabel
+TopBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TopBar.BackgroundTransparency = 0.900
+TopBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TopBar.BorderSizePixel = 0
+TopBar.Size = UDim2.new(1, 0, 0, 40)
+
+TextLabel.Parent = TopBar
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(0, 200, 0, 40)
+TextLabel.Font = Enum.Font.Ubuntu
+TextLabel.Text = "Sky Hub - "
+task.spawn(function()
+	while task.wait(0.1) do
+		local currentTime = os.date("*t")
+
+		local hours, mins, secs = currentTime.hour, currentTime.min, currentTime.sec
+
+		TextLabel.Text = "Sky Hub - " .. string.format("%02d:%02d:%02d", hours, mins, secs)
+	end
+end)
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 25.000
+TextLabel.TextWrapped = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.48, Color3.fromRGB(56, 56, 56)), ColorSequenceKeypoint.new(0.69, Color3.fromRGB(88, 88, 88)), ColorSequenceKeypoint.new(0.86, Color3.fromRGB(113, 113, 113)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(29, 29, 29))}
+UIGradient.Rotation = 90
+UIGradient.Parent = TopBar
+
+Minimize.Name = "Minimize"
+Minimize.Parent = TopBar
+Minimize.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+Minimize.BackgroundTransparency = 1.000
+Minimize.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Minimize.BorderSizePixel = 0
+Minimize.Position = UDim2.new(0, 470, 0, 0)
+Minimize.Size = UDim2.new(0, 40, 0, 40)
+Minimize.Font = Enum.Font.Ubuntu
+Minimize.Text = ""
+Minimize.TextColor3 = Color3.fromRGB(0, 0, 0)
+Minimize.TextSize = 14.000
+
+Rot.Name = "Rot"
+Rot.Parent = Minimize
+Rot.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Rot.BackgroundTransparency = 1.000
+Rot.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Rot.BorderSizePixel = 0
+Rot.Position = UDim2.new(0.125, 0, 0.125, 0)
+Rot.Rotation = 90.000
+Rot.Size = UDim2.new(0.75, 0, 0.75, 0)
+
+Frame.Parent = Rot
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.800000012, 0, 0.100000001, 0)
+Frame.Size = UDim2.new(0.100000001, 0, 0.800000012, 0)
+
+UICorner_2.CornerRadius = UDim.new(0, 500)
+UICorner_2.Parent = Frame
+
+Frame_2.Parent = Rot
+Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(0.100000001, 0, 0.100000001, 0)
+Frame_2.Size = UDim2.new(0.100000001, 0, 0.800000012, 0)
+
+UICorner_3.CornerRadius = UDim.new(0, 500)
+UICorner_3.Parent = Frame_2
+
+Rot_2.Name = "Rot"
+Rot_2.Parent = Minimize
+Rot_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Rot_2.BackgroundTransparency = 1.000
+Rot_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Rot_2.BorderSizePixel = 0
+Rot_2.Position = UDim2.new(0.125, 0, 0.125, 0)
+Rot_2.Size = UDim2.new(0.75, 0, 0.75, 0)
+
+Frame_3.Parent = Rot_2
+Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_3.BorderSizePixel = 0
+Frame_3.Position = UDim2.new(0.800000012, 0, 0.100000001, 0)
+Frame_3.Size = UDim2.new(0.100000001, 0, 0.800000012, 0)
+
+UICorner_4.CornerRadius = UDim.new(0, 500)
+UICorner_4.Parent = Frame_3
+
+Frame_4.Parent = Rot_2
+Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_4.BorderSizePixel = 0
+Frame_4.Position = UDim2.new(0.100000001, 0, 0.100000001, 0)
+Frame_4.Size = UDim2.new(0.100000001, 0, 0.800000012, 0)
+
+UICorner_5.CornerRadius = UDim.new(0, 500)
+UICorner_5.Parent = Frame_4
+
+Close.Name = "Close"
+Close.Parent = TopBar
+Close.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+Close.BackgroundTransparency = 1.000
+Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0, 510, 0, 0)
+Close.Rotation = 1.000
+Close.Size = UDim2.new(0, 40, 0, 40)
+Close.Font = Enum.Font.Ubuntu
+Close.Text = ""
+Close.TextColor3 = Color3.fromRGB(0, 0, 0)
+Close.TextSize = 14.000
+
+Rot_3.Name = "Rot"
+Rot_3.Parent = Close
+Rot_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Rot_3.BackgroundTransparency = 1.000
+Rot_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Rot_3.BorderSizePixel = 0
+Rot_3.Position = UDim2.new(0.125, 0, 0.125, 0)
+Rot_3.Size = UDim2.new(0.75, 0, 0.75, 0)
+
+Frame_5.Parent = Rot_3
+Frame_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_5.BorderSizePixel = 0
+Frame_5.Position = UDim2.new(0.432999998, 0, 0.0939999968, 0)
+Frame_5.Rotation = -45.000
+Frame_5.Size = UDim2.new(0.100000001, 0, 0.800000012, 0)
+
+UICorner_6.CornerRadius = UDim.new(0, 500)
+UICorner_6.Parent = Frame_5
+
+Frame_6.Parent = Rot_3
+Frame_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_6.BorderSizePixel = 0
+Frame_6.Position = UDim2.new(0.433281153, 0, 0.0941828862, 0)
+Frame_6.Rotation = 45.000
+Frame_6.Size = UDim2.new(0.100000001, 0, 0.800000012, 0)
+
+UICorner_7.CornerRadius = UDim.new(0, 500)
+UICorner_7.Parent = Frame_6
+
+TabTemplates.Name = "TabTemplates"
+TabTemplates.Parent = Script
+
+TTemp.Name = "TTemp"
+TTemp.Parent = TabTemplates
+TTemp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TTemp.BackgroundTransparency = 1.000
+TTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TTemp.BorderSizePixel = 0
+TTemp.Size = UDim2.new(0, 100, 0, 100)
+
+Toggle.Name = "Toggle"
+Toggle.Parent = TTemp
+Toggle.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Toggle.BackgroundTransparency = 0.750
+Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.BorderSizePixel = 0
+Toggle.Position = UDim2.new(0.0395348854, 0, 0.0769233704, 0)
+Toggle.Size = UDim2.new(0, 33, 0, 33)
+Toggle.Font = Enum.Font.Ubuntu
+Toggle.Text = ""
+Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+Toggle.TextSize = 30.000
+
+UICorner_8.CornerRadius = UDim.new(0, 5)
+UICorner_8.Parent = Toggle
+
+Desc.Name = "Desc"
+Desc.Parent = TTemp
+Desc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Desc.BackgroundTransparency = 1.000
+Desc.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Desc.BorderSizePixel = 0
+Desc.Position = UDim2.new(0.274418592, 0, 0.174999997, 0)
+Desc.Size = UDim2.new(0, 145, 0, 26)
+Desc.Font = Enum.Font.Ubuntu
+Desc.Text = "Checkmark"
+Desc.TextColor3 = Color3.fromRGB(255, 255, 255)
+Desc.TextScaled = true
+Desc.TextSize = 14.000
+Desc.TextWrapped = true
+Desc.TextXAlignment = Enum.TextXAlignment.Left
+
+ITemp.Name = "ITemp"
+ITemp.Parent = TabTemplates
+ITemp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ITemp.BackgroundTransparency = 1.000
+ITemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ITemp.BorderSizePixel = 0
+ITemp.Size = UDim2.new(0, 100, 0, 100)
+
+Input.Name = "Input"
+Input.Parent = ITemp
+Input.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Input.BackgroundTransparency = 0.750
+Input.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Input.BorderSizePixel = 0
+Input.Position = UDim2.new(0.150999993, 0, 0.0769999996, 0)
+Input.Size = UDim2.new(0, 150, 0, 33)
+Input.Font = Enum.Font.Ubuntu
+Input.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+Input.PlaceholderText = "Placeholder"
+Input.Text = ""
+Input.TextColor3 = Color3.fromRGB(255, 255, 255)
+Input.TextSize = 22.000
+Input.TextWrapped = true
+
+UICorner_9.CornerRadius = UDim.new(0, 5)
+UICorner_9.Parent = Input
+
+BTemp.Name = "BTemp"
+BTemp.Parent = TabTemplates
+BTemp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BTemp.BackgroundTransparency = 1.000
+BTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BTemp.BorderSizePixel = 0
+BTemp.Size = UDim2.new(0, 100, 0, 100)
+
+Button.Name = "Button"
+Button.Parent = BTemp
+Button.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Button.BackgroundTransparency = 0.750
+Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Button.BorderSizePixel = 0
+Button.Position = UDim2.new(0.151162788, 0, 0.0769233704, 0)
+Button.Size = UDim2.new(0, 150, 0, 33)
+Button.Font = Enum.Font.Ubuntu
+Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+Button.TextSize = 18.000
+
+UICorner_10.CornerRadius = UDim.new(0, 5)
+UICorner_10.Parent = Button
+
+SectionTemp.Name = "SectionTemp"
+SectionTemp.Parent = TabTemplates
+SectionTemp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SectionTemp.BackgroundTransparency = 1.000
+SectionTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SectionTemp.BorderSizePixel = 0
+SectionTemp.Size = UDim2.new(0, 100, 0, 100)
+
+Section.Name = "Section"
+Section.Parent = SectionTemp
+Section.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Section.BackgroundTransparency = 1.000
+Section.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Section.BorderSizePixel = 0
+Section.Position = UDim2.new(0.0500000007, 0, 0.25, 0)
+Section.Size = UDim2.new(0.899999976, 0, 0.5, 0)
+Section.Font = Enum.Font.Ubuntu
+Section.Text = "Section"
+Section.TextColor3 = Color3.fromRGB(255, 255, 255)
+Section.TextScaled = true
+Section.TextSize = 14.000
+Section.TextWrapped = true
+Section.TextXAlignment = Enum.TextXAlignment.Left
+
+SectionSpacer.Name = "SectionSpacer"
+SectionSpacer.Parent = TabTemplates
+SectionSpacer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SectionSpacer.BackgroundTransparency = 1.000
+SectionSpacer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SectionSpacer.BorderSizePixel = 0
+SectionSpacer.Size = UDim2.new(0, 100, 0, 100)
+
+Slide.Name = "Slide"
+Slide.Parent = TabTemplates
+Slide.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Slide.BackgroundTransparency = 1.000
+Slide.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Slide.BorderSizePixel = 0
+Slide.Size = UDim2.new(0, 100, 0, 100)
+
+Max.Name = "Max"
+Max.Parent = Slide
+Max.AnchorPoint = Vector2.new(0.5, 0.5)
+Max.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Max.BackgroundTransparency = 0.500
+Max.BorderSizePixel = 0
+Max.Position = UDim2.new(0.5, 0, 0.5, 0)
+Max.Size = UDim2.new(0.75, 0, 0.400000006, 0)
+Max.AutoButtonColor = false
+Max.Font = Enum.Font.Ubuntu
+Max.Text = ""
+Max.TextColor3 = Color3.fromRGB(0, 0, 0)
+Max.TextSize = 14.000
+
+Bar.Name = "Bar"
+Bar.Parent = Max
+Bar.BackgroundColor3 = Color3.fromRGB(250, 250, 250)
+Bar.BorderSizePixel = 0
+Bar.Size = UDim2.new(0, 82, 1, 0)
+
+UICorner_11.Parent = Bar
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.33, Color3.fromRGB(184, 184, 184)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(100, 100, 100))}
+UIGradient_2.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.75), NumberSequenceKeypoint.new(1.00, 0.75)}
+UIGradient_2.Parent = Bar
+
+UICorner_12.Parent = Max
+
+DTemp.Name = "DTemp"
+DTemp.Parent = TabTemplates
+DTemp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DTemp.BackgroundTransparency = 1.000
+DTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
+DTemp.BorderSizePixel = 0
+DTemp.Position = UDim2.new(0.674208164, 0, 0.454838723, 0)
+DTemp.Size = UDim2.new(0, 100, 0, 100)
+
+Button_2.Name = "Button"
+Button_2.Parent = DTemp
+Button_2.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Button_2.BackgroundTransparency = 0.750
+Button_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Button_2.BorderSizePixel = 0
+Button_2.Position = UDim2.new(0.151162788, 0, 0.0769233704, 0)
+Button_2.Size = UDim2.new(0, 150, 0, 33)
+Button_2.Font = Enum.Font.Ubuntu
+Button_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Button_2.TextSize = 18.000
+
+UICorner_13.CornerRadius = UDim.new(0, 5)
+UICorner_13.Parent = Button_2
+
+Drop.Name = "Drop"
+Drop.Parent = Button_2
+Drop.Active = true
+Drop.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Drop.BackgroundTransparency = 0.750
+Drop.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Drop.BorderSizePixel = 0
+Drop.Position = UDim2.new(-0.00333333341, 0, 1.29818165, 0)
+Drop.Size = UDim2.new(0, 150, 0, 127)
+Drop.CanvasSize = UDim2.new(0, 0, 4, 0)
+Drop.ScrollBarThickness = 0
+
+UICorner_14.CornerRadius = UDim.new(0, 5)
+UICorner_14.Parent = Drop
+
+UIGridLayout.Parent = Drop
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.CellPadding = UDim2.new(0, 0, 0, 5)
+UIGridLayout.CellSize = UDim2.new(1, 0, 0, 40)
+
+Button_3.Name = "Button"
+Button_3.Parent = UIGridLayout
+Button_3.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Button_3.BackgroundTransparency = 0.750
+Button_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Button_3.BorderSizePixel = 0
+Button_3.Position = UDim2.new(0.151162788, 0, 0.0769233704, 0)
+Button_3.Size = UDim2.new(0, 150, 0, 33)
+Button_3.Font = Enum.Font.Ubuntu
+Button_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Button_3.TextSize = 18.000
+
+UICorner_15.CornerRadius = UDim.new(0, 5)
+UICorner_15.Parent = Button_3
+
+TabStuff.Name = "TabStuff"
+TabStuff.Parent = Script
+
+TabTemp.Name = "TabTemp"
+TabTemp.Parent = TabStuff
+TabTemp.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+TabTemp.BackgroundTransparency = 0.900
+TabTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabTemp.BorderSizePixel = 0
+TabTemp.Size = UDim2.new(0, 100, 0, 100)
+
+Button_4.Name = "Button"
+Button_4.Parent = TabTemp
+Button_4.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Button_4.BackgroundTransparency = 1.000
+Button_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Button_4.BorderSizePixel = 0
+Button_4.Size = UDim2.new(1, 0, 1, 0)
+Button_4.Font = Enum.Font.Ubuntu
+Button_4.Text = ""
+Button_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Button_4.TextSize = 20.000
+
+TextLabel_2.Parent = TabTemp
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.333333343, 0, 0.174999997, 0)
+TextLabel_2.Size = UDim2.new(0, 80, 0, 26)
+TextLabel_2.Font = Enum.Font.Ubuntu
+TextLabel_2.Text = "Tab 1"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 20.000
+TextLabel_2.TextWrapped = true
+
+ImageLabel_2.Parent = TabTemp
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_2.BackgroundTransparency = 1.000
+ImageLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_2.BorderSizePixel = 0
+ImageLabel_2.Position = UDim2.new(0.0833333358, 0, 0.125, 0)
+ImageLabel_2.Size = UDim2.new(0, 30, 0, 30)
+ImageLabel_2.Image = "rbxassetid://12010069146"
+
+TempTab.Name = "TempTab"
+TempTab.Parent = TabStuff
+TempTab.Active = true
+TempTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TempTab.BackgroundTransparency = 1.000
+TempTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TempTab.BorderSizePixel = 0
+TempTab.Position = UDim2.new(0.217999995, 0, 0.133000001, 0)
+TempTab.Size = UDim2.new(0, 430, 0, 260)
+TempTab.CanvasSize = UDim2.new(0, 0, 8, 0)
+TempTab.ScrollBarThickness = 0
+
+UIGridLayout_2.Parent = TempTab
+UIGridLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout_2.CellPadding = UDim2.new(0, 0, 0, 5)
+UIGridLayout_2.CellSize = UDim2.new(0.5, 0, 0, 40)
+
+TabList.Name = "TabList"
+TabList.Parent = ImageLabel
+TabList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TabList.BackgroundTransparency = 1.000
+TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabList.BorderSizePixel = 0
+TabList.Position = UDim2.new(0, 0, 0.13333334, 0)
+TabList.Size = UDim2.new(0, 120, 0, 251)
+
+UIGridLayout_3.Parent = TabList
+UIGridLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout_3.CellSize = UDim2.new(1, 0, 0, 40)
+
+Tabs.Name = "Tabs"
+Tabs.Parent = ImageLabel
+
+-- Scripts:
+
+local function EWJZYI_fake_script() -- ImageLabel.Script 
+	local script = Instance.new('LocalScript', ImageLabel)
+
+	--[[
+	
+	Version 6.0
+	
+	Max Intensity: 1
+	
+	Original: https://devforum.roblox.com/t/how-to-make-ui-gaussian-blur/1238701
+	Automated(Current Script): https://devforum.roblox.com/t/new-ui-blur-fully-automatic/2402850
+	
+	Credits: Original Creator @googleUSE, Moder and automater thingy majingy @ImSnox
+	
+	]]
+	
+	local BlurIntensity = 0.4
+	
+	local RunService = game:GetService('RunService')
+	local camera = workspace.CurrentCamera
+	local MTREL = "Glass"
+	local binds = {}
+	local root = Instance.new('Folder', camera)
+	
+	local DepthOfField = Instance.new('DepthOfFieldEffect', game:GetService('Lighting'))
+	local frame = script.Parent
+	DepthOfField.FarIntensity = 0
+	DepthOfField.FocusDistance = 51.6
+	DepthOfField.InFocusRadius = 50
+	DepthOfField.NearIntensity = BlurIntensity
+	DepthOfField.Name = " "
+	root.Name = 'BlurSnox'
+	
+	local GenUid; do -- Generate unique names for RenderStepped bindings
+		local id = 0
+		function GenUid()
+			id = id + 1
+			return 'neon::'..tostring(id)
+		end
+	end
+	
+	do
+		local function IsNotNaN(x)
+			return x == x
+		end
+		local continue = IsNotNaN(camera:ScreenPointToRay(0,0).Origin.x)
+		while not continue do
+			RunService.RenderStepped:wait()
+			continue = IsNotNaN(camera:ScreenPointToRay(0,0).Origin.x)
+		end
+	end
+	
+	local DrawQuad; do
+		local acos, max, pi, sqrt = math.acos, math.max, math.pi, math.sqrt
+		local sz = 0.2
+	
+		function DrawTriangle(v1, v2, v3, p0, p1) -- I think Stravant wrote this function
+			local s1 = (v1 - v2).magnitude
+			local s2 = (v2 - v3).magnitude
+			local s3 = (v3 - v1).magnitude
+			local smax = max(s1, s2, s3)
+			local A, B, C
+			if s1 == smax then
+				A, B, C = v1, v2, v3
+			elseif s2 == smax then
+				A, B, C = v2, v3, v1
+			elseif s3 == smax then
+				A, B, C = v3, v1, v2
+			end
+	
+			local para = ( (B-A).x*(C-A).x + (B-A).y*(C-A).y + (B-A).z*(C-A).z ) / (A-B).magnitude
+			local perp = sqrt((C-A).magnitude^2 - para*para)
+			local dif_para = (A - B).magnitude - para
+	
+			local st = CFrame.new(B, A)
+			local za = CFrame.Angles(pi/2,0,0)
+	
+			local cf0 = st
+	
+			local Top_Look = (cf0 * za).lookVector
+			local Mid_Point = A + CFrame.new(A, B).lookVector * para
+			local Needed_Look = CFrame.new(Mid_Point, C).lookVector
+			local dot = Top_Look.x*Needed_Look.x + Top_Look.y*Needed_Look.y + Top_Look.z*Needed_Look.z
+	
+			local ac = CFrame.Angles(0, 0, acos(dot))
+	
+			cf0 = cf0 * ac
+			if ((cf0 * za).lookVector - Needed_Look).magnitude > 0.01 then
+				cf0 = cf0 * CFrame.Angles(0, 0, -2*acos(dot))
+			end
+			cf0 = cf0 * CFrame.new(0, perp/2, -(dif_para + para/2))
+	
+			local cf1 = st * ac * CFrame.Angles(0, pi, 0)
+			if ((cf1 * za).lookVector - Needed_Look).magnitude > 0.01 then
+				cf1 = cf1 * CFrame.Angles(0, 0, 2*acos(dot))
+			end
+			cf1 = cf1 * CFrame.new(0, perp/2, dif_para/2)
+	
+			if not p0 then
+				p0 = Instance.new('Part')
+				p0.Color = Color3.fromRGB(91, 128, 130)
+				p0.FormFactor = 'Custom'
+				p0.TopSurface = 0
+				p0.BottomSurface = 0
+				p0.Anchored = true
+				p0.CanCollide = false
+				p0.CastShadow = false
+				p0.Material = MTREL
+				p0.Size = Vector3.new(sz, sz, sz)
+				local mesh = Instance.new('SpecialMesh', p0)
+				mesh.MeshType = 2
+				mesh.Name = 'WedgeMesh'
+			end
+			p0.WedgeMesh.Scale = Vector3.new(0, perp/sz, para/sz)
+			p0.CFrame = cf0
+	
+			if not p1 then
+				p1 = p0:clone()
+			end
+			p1.WedgeMesh.Scale = Vector3.new(0, perp/sz, dif_para/sz)
+			p1.CFrame = cf1
+	
+			return p0, p1
+		end
+	
+		function DrawQuad(v1, v2, v3, v4, parts)
+			parts[1], parts[2] = DrawTriangle(v1, v2, v3, parts[1], parts[2])
+			parts[3], parts[4] = DrawTriangle(v3, v2, v4, parts[3], parts[4])
+		end
+	end
+	
+	if binds[frame] then
+		return binds[frame].parts
+	end
+	
+	local uid = GenUid()
+	local parts = {}
+	local visible = true
+	local f = Instance.new('Folder', root)
+	f.Name = frame.Name
+	
+	local parents = {}
+	do
+		local function add(child)
+			if child:IsA'GuiObject' then
+				parents[#parents + 1] = child
+				add(child.Parent)
+			end
+		end
+		add(frame)
+	end
+	
+	local function UpdateOrientation(fetchProps)
+		local trans = 0.99
+		if visible == false then
+			trans = 1
+		end
+		local properties = {
+			Transparency = trans;
+			--BrickColor = BrickColor.new('Institutional white');
+		}
+		local zIndex = 1 - 0.05*frame.ZIndex
+	
+		local tl, br = frame.AbsolutePosition, frame.AbsolutePosition + frame.AbsoluteSize
+		local tr, bl = Vector2.new(br.x, tl.y), Vector2.new(tl.x, br.y)
+		do
+			local rot = 0;
+			for _, v in ipairs(parents) do
+				rot = rot + v.Rotation
+			end
+			if rot ~= 0 and rot%180 ~= 0 then
+				local mid = tl:lerp(br, 0.5)
+				local s, c = math.sin(math.rad(rot)), math.cos(math.rad(rot))
+				local vec = tl
+				tl = Vector2.new(c*(tl.x - mid.x) - s*(tl.y - mid.y), s*(tl.x - mid.x) + c*(tl.y - mid.y)) + mid
+				tr = Vector2.new(c*(tr.x - mid.x) - s*(tr.y - mid.y), s*(tr.x - mid.x) + c*(tr.y - mid.y)) + mid
+				bl = Vector2.new(c*(bl.x - mid.x) - s*(bl.y - mid.y), s*(bl.x - mid.x) + c*(bl.y - mid.y)) + mid
+				br = Vector2.new(c*(br.x - mid.x) - s*(br.y - mid.y), s*(br.x - mid.x) + c*(br.y - mid.y)) + mid
+			end
+		end
+		DrawQuad(
+			camera:ScreenPointToRay(tl.x, tl.y, zIndex).Origin, 
+			camera:ScreenPointToRay(tr.x, tr.y, zIndex).Origin, 
+			camera:ScreenPointToRay(bl.x, bl.y, zIndex).Origin, 
+			camera:ScreenPointToRay(br.x, br.y, zIndex).Origin, 
+			parts
+		)
+		if fetchProps then
+			for _, pt in pairs(parts) do
+				pt.Parent = f
+			end
+			for propName, propValue in pairs(properties) do
+				for _, pt in pairs(parts) do
+					pt[propName] = propValue
+				end
+			end
+		end
+	end
+	
+	UpdateOrientation(true)
+	RunService:BindToRenderStep(uid, 2000, UpdateOrientation)
+	local UserInputService = game:GetService("UserInputService")
+	local runService = (game:GetService("RunService"));
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	function Lerp(a, b, m)
+		return a + (b - a) * m
+	end;
+	
+	local lastMousePos
+	local lastGoalPos
+	local DRAG_SPEED = (8); -- // The speed of the UI darg.
+	function Update(dt)
+		if not (startPos) then return end;
+		if not (dragging) and (lastGoalPos) then
+			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+			return 
+		end;
+	
+		local delta = (lastMousePos - UserInputService:GetMouseLocation())
+		local xGoal = (startPos.X.Offset - delta.X);
+		local yGoal = (startPos.Y.Offset - delta.Y);
+		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+	end;
+	
+	gui.TopBar.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			lastMousePos = UserInputService:GetMouseLocation()
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.TopBar.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	runService.Heartbeat:Connect(Update)
+	script.Parent.TopBar.Minimize.Activated:Connect(function()
+		visible = false
+	end)
+	script.Parent.TopBar.Close.Activated:Connect(function()
+		script.Parent.Parent:Destroy()
+		game:GetService("Workspace").Camera.BlurSnox:Destroy()
+		game:GetService("Lighting")[" "]:Destroy()
+	end)
+	local uis = game:GetService("UserInputService")
+	uis.InputBegan:Connect(function(inp)
+		if inp.KeyCode == Enum.KeyCode.LeftShift then
+			visible = true
+		end
+	end)
+	task.spawn(function()
+		while task.wait() do
+			script.Parent.Visible = visible
+		end
+	end)
+end
+coroutine.wrap(EWJZYI_fake_script)()
+
+local lib = {}
+local tabs = {}
+local ui = ImageLabel
+
+function AddToggle(name, text, callback, tab)
+	local button = ui.Script.TabTemplates.TTemp:Clone()
+	button.Name = name
+	button.Desc.Text = text
+	local enabled = false
+	button.Toggle.Activated:Connect(function()
+		if enabled == false then
+			enabled = true
+			button.Toggle.BackgroundColor3 = Color3.fromRGB(250,250,250)
+			button.Toggle.Transparency = 0.3
+		else
+			enabled = false
+			button.Toggle.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+			button.Toggle.Transparency = 0.75
+		end
+		callback(enabled)
+	end)
+	button.Parent = tab
 end
 
+function AddInput(name, placeholder, callback, tab)
+	local button = ui.Script.TabTemplates.ITemp:Clone()
+	button.Name = name
+	button.Input.PlaceholderText = placeholder
+	local previousinput = ""
+	task.spawn(function()
+		while task.wait(0.1) do
+			if #button.Input.Text >= 10 then
+				button.Input.TextScaled = true
+			else
+				button.Input.TextScaled = true
+			end
+		end
+	end)
+	button.Input.FocusLost:Connect(function()
+		if button.Input.Text == "" then
+			return
+		end
+		if button.Input.Text == previousinput then
+			return
+		end
+		previousinput = button.Input.Text
+		callback(button.Input.Text)
+	end)
+	button.Parent = tab
+end
 
-local v0=tonumber;local v1=string.byte;local v2=string.char;local v3=string.sub;local v4=string.gsub;local v5=string.rep;local v6=table.concat;local v7=table.insert;local v8=math.ldexp;local v9=getfenv or function()return _ENV;end ;local v10=setmetatable;local v11=pcall;local v12=select;local v13=unpack or table.unpack ;local v14=tonumber;local function v15(v16,v17,...)local v18=1;local v19;v16=v4(v3(v16,5),"..",function(v30)if (v1(v30,2)==79) then local v81=0;while true do if (v81==0) then v19=v0(v3(v30,1,1));return "";end end else local v82=0;local v83;while true do if (v82==0) then v83=v2(v0(v30,16));if v19 then local v98=0;local v99;while true do if (v98==1) then return v99;end if (v98==0) then v99=v5(v83,v19);v19=nil;v98=1;end end else return v83;end break;end end end end);local function v20(v31,v32,v33)if v33 then local v84=0 -0 ;local v85;while true do if (v84==0) then v85=(v31/((5 -3)^(v32-(1 -(1637 -(1523 + 114))))))%((4 -2)^(((v33-((558 + 62) -(555 + 64))) -(v32-1)) + (932 -(857 + (105 -31))))) ;return v85-(v85%1) ;end end else local v86=568 -(367 + 201) ;local v87;while true do if (v86==0) then v87=(929 -((1279 -(68 + 997)) + 713))^(v32-(1 + (1270 -(226 + 1044)))) ;return (((v31%(v87 + v87))>=v87) and (1 + 0)) or (877 -(282 + 595)) ;end end end end local function v21()local v34=0 -0 ;local v35;while true do if (v34==(118 -(32 + 85))) then return v35;end if (v34==(0 + 0)) then v35=v1(v16,v18,v18);v18=v18 + 1 + 0 ;v34=958 -(892 + 65) ;end end end local function v22()local v36,v37=v1(v16,v18,v18 + 2 );v18=v18 + (4 -2) ;return (v37 * (472 -216)) + v36 ;end local function v23()local v38,v39,v40,v41=v1(v16,v18,v18 + (4 -1) );v18=v18 + (354 -(87 + 263)) ;return (v41 * (16777396 -(50 + 17 + 113))) + (v40 * (48056 + 17480)) + (v39 * (628 -372)) + v38 ;end local function v24()local v42=v23();local v43=v23();local v44=3 -2 ;local v45=(v20(v43,953 -(802 + 150) ,53 -33 ) * ((3 -1)^32)) + v42 ;local v46=v20(v43,16 + 5 ,1028 -(915 + 82) );local v47=((v20(v43,90 -58 )==(1 + 0)) and  -(1 -(0 -0))) or (1188 -(1069 + 118)) ;if (v46==(0 -0)) then if (v45==(0 -0)) then return v47 * (0 + 0) ;else local v91=0;while true do if (v91==((438 -(145 + 293)) -0)) then v46=1 + 0 ;v44=791 -(368 + 423) ;break;end end end elseif (v46==((6863 -(44 + 386)) -4386)) then return ((v45==(18 -(10 + 8))) and (v47 * ((3 -2)/(442 -(416 + (1512 -(998 + 488))))))) or (v47 * NaN) ;end return v8(v47,v46-(3266 -2243) ) * (v44 + (v45/((1 + 1)^(17 + 35)))) ;end local function v25(v48)local v49=0;local v50;local v51;while true do if (v49==(2 + 0)) then v51={};for v92=773 -(201 + (1430 -(814 + 45))) , #v50 do v51[v92]=v2(v1(v3(v50,v92,v92)));end v49=7 -4 ;end if (v49==(1 + 0)) then v50=v3(v16,v18,(v18 + v48) -1 );v18=v18 + v48 ;v49=1140 -(116 + 1022) ;end if (v49==((5 + 7) -9)) then return v6(v51);end if (v49==(0 + 0)) then v50=nil;if  not v48 then v48=v23();if (v48==(0 -0)) then return "";end end v49=3 -2 ;end end end local v26=v23;local function v27(...)return {...},v12("#",...);end local function v28()local v52=0;local v53;local v54;local v55;local v56;local v57;local v58;local v59;local v60;while true do if (v52==0) then v53=0 -0 ;v54=nil;v52=1 + 0 ;end if (v52~=(9 -5)) then else while true do if (v53~=(1590 -(412 + 1175))) then else v60=nil;while true do local v100=0;local v101;while true do if (v100~=0) then else v101=0;while true do if (v101~=(0 -0)) then else local v138=0;while true do if (v138==(1 + 0)) then v101=1;break;end if (v138==0) then if (v54~=3) then else local v144=0 + 0 ;while true do if (v144~=(0 -0)) then else local v157=0;while true do if (v157==(1274 -(388 + 886))) then for v160=1,v23() do v56[v160-(1 -0) ]=v28();end return v58;end end end end end if (0~=v54) then else local v145=0 + 0 ;while true do if (v145~=1) then else v57={};v54=561 -(306 + 254) ;break;end if (v145~=(0 + 0)) then else v55={};v56={};v145=1 -0 ;end end end v138=1468 -(899 + 568) ;end end end if (v101~=(1 + 0)) then else if (v54~=(4 -2)) then else local v143=603 -(268 + 335) ;while true do if (v143~=1) then else for v147=1,v23() do local v148=0;local v149;local v150;local v151;while true do if (v148==(291 -(60 + 230))) then v151=nil;while true do if (v149==(572 -(426 + 146))) then v150=0 + 0 ;v151=nil;v149=1;end if (v149==1) then while true do if (v150==(1456 -(282 + 1174))) then v151=v21();if (v20(v151,812 -(569 + 242) ,2 -1 )~=0) then else local v166=0 + 0 ;local v167;local v168;local v169;local v170;local v171;while true do if (v166==1) then v169=nil;v170=nil;v166=2;end if (v166==0) then v167=1024 -(706 + 318) ;v168=nil;v166=1252 -(721 + 530) ;end if (v166==(1273 -(945 + 326))) then v171=nil;while true do if (v167==0) then local v172=0 -0 ;while true do if (v172==(0 + 0)) then v168=700 -(271 + 429) ;v169=nil;v172=1 + 0 ;end if (v172==1) then v167=1;break;end end end if (v167==(1501 -(1408 + 92))) then v170=nil;v171=nil;v167=1088 -(461 + 625) ;end if ((1290 -(993 + 295))~=v167) then else while true do if (v168~=0) then else local v173=0 + 0 ;local v174;while true do if (v173==(1171 -(418 + 753))) then v174=0 + 0 ;while true do if (v174==0) then local v182=0 + 0 ;while true do if (v182==(1 + 0)) then v174=1;break;end if (v182==0) then v169=v20(v151,2,3);v170=v20(v151,4,2 + 4 );v182=530 -(406 + 123) ;end end end if (v174==1) then v168=1770 -(1749 + 20) ;break;end end break;end end end if (v168==3) then if (v20(v170,1 + 2 ,1325 -(1249 + 73) )~=(1 + 0)) then else v171[1149 -(466 + 679) ]=v60[v171[4]];end v55[v147]=v171;break;end if (v168==2) then local v176=0 -0 ;local v177;while true do if ((0 -0)==v176) then v177=0;while true do if (v177==1) then v168=3;break;end if (0==v177) then local v183=0;local v184;while true do if (0==v183) then v184=1900 -(106 + 1794) ;while true do if (v184~=(0 + 0)) then else local v190=0 + 0 ;while true do if (v190==0) then if (v20(v170,1,1)~=1) then else v171[2]=v60[v171[2]];end if (v20(v170,5 -3 ,5 -3 )~=(115 -(4 + 110))) then else v171[587 -(57 + 527) ]=v60[v171[3]];end v190=1428 -(41 + 1386) ;end if (v190~=1) then else v184=104 -(17 + 86) ;break;end end end if (v184==(1 + 0)) then v177=1 -0 ;break;end end break;end end end end break;end end end if (v168~=(2 -1)) then else local v178=0;local v179;while true do if (v178~=(166 -(122 + 44))) then else v179=0;while true do if (v179~=(0 -0)) then else local v185=0;while true do if (v185~=0) then else v171={v22(),v22(),nil,nil};if (v169==(0 + 0)) then local v186=0;local v187;local v188;local v189;while true do if (0~=v186) then else v187=0 -0 ;v188=nil;v186=1;end if ((66 -(30 + 35))~=v186) then else v189=nil;while true do if (v187==(1 + 0)) then while true do if (v188~=0) then else v189=1257 -(1043 + 214) ;while true do if (v189==0) then v171[11 -8 ]=v22();v171[4]=v22();break;end end break;end end break;end if (0==v187) then local v197=1212 -(323 + 889) ;while true do if (v197~=1) then else v187=1;break;end if (v197==0) then v188=0;v189=nil;v197=1;end end end end break;end end elseif (v169==(2 -1)) then v171[3]=v23();elseif (v169==(582 -(361 + 219))) then v171[323 -(53 + 267) ]=v23() -((1 + 1)^(429 -(15 + 398))) ;elseif (v169==(985 -(18 + 964))) then local v198=0 -0 ;local v199;while true do if (v198==0) then v199=0 + 0 ;while true do if (v199==(0 + 0)) then v171[853 -(20 + 830) ]=v23() -((2 + 0)^16) ;v171[4]=v22();break;end end break;end end end v185=1;end if ((127 -(116 + 10))==v185) then v179=1;break;end end end if (v179==(1 + 0)) then v168=740 -(542 + 196) ;break;end end break;end end end end break;end end break;end end end break;end end break;end end break;end if (v148~=(0 -0)) then else v149=0;v150=nil;v148=1;end end end v54=3;break;end if (v143==(0 + 0)) then for v152=1,v59 do local v153=0 + 0 ;local v154;local v155;local v156;while true do if (v153~=0) then else local v158=0 + 0 ;local v159;while true do if (v158==(0 -0)) then v159=0;while true do if (v159==(2 -1)) then v153=1;break;end if ((1551 -(1126 + 425))~=v159) then else local v165=0;while true do if ((406 -(118 + 287))~=v165) then else v159=3 -2 ;break;end if (0==v165) then v154=1121 -(118 + 1003) ;v155=nil;v165=1;end end end end break;end end end if ((2 -1)==v153) then v156=nil;while true do if (v154==1) then if (v155==1) then v156=v21()~=(377 -(142 + 235)) ;elseif (v155==2) then v156=v24();elseif (v155==(13 -10)) then v156=v25();end v60[v152]=v156;break;end if (v154==0) then local v163=0 + 0 ;local v164;while true do if (v163==0) then v164=0;while true do if (v164==0) then v155=v21();v156=nil;v164=978 -(553 + 424) ;end if (1==v164) then v154=1 -0 ;break;end end break;end end end end break;end end end v58[3 + 0 ]=v21();v143=1;end end end if (v54==(1 + 0)) then v58={v55,v56,nil,v57};v59=v23();v60={};v54=2;end break;end end break;end end end break;end if (v53~=(2 -1)) then else v56=nil;v57=nil;v53=5 -3 ;end if (v53~=(4 -2)) then else v58=nil;v59=nil;v53=3;end if (0==v53) then v54=0 + 0 ;v55=nil;v53=1;end end break;end if (v52==(4 -3)) then v55=nil;v56=nil;v52=2;end if (v52~=3) then else v59=nil;v60=nil;v52=4;end if (v52==2) then v57=nil;v58=nil;v52=3;end end end local function v29(v61,v62,v63)local v64=v61[1];local v65=v61[2];local v66=v61[3];return function(...)local v67=v64;local v68=v65;local v69=v66;local v70=v27;local v71=1;local v72= -1;local v73={};local v74={...};local v75=v12("#",...) -1 ;local v76={};local v77={};for v88=0,v75 do if (v88>=v69) then v73[v88-v69 ]=v74[v88 + 1 ];else v77[v88]=v74[v88 + 1 ];end end local v78=(v75-v69) + 1 ;local v79;local v80;while true do v79=v67[v71];v80=v79[1];if (v80<=6) then if (v80<=2) then if (v80<=0) then local v102=v79[2];local v103,v104=v70(v77[v102](v13(v77,v102 + 1 ,v79[3])));v72=(v104 + v102) -1 ;local v105=0;for v111=v102,v72 do local v112=0;while true do if (v112==0) then v105=v105 + 1 ;v77[v111]=v103[v105];break;end end end elseif (v80>1) then v77[v79[2]]=v63[v79[3]];else do return;end end elseif (v80<=4) then if (v80>3) then v77[v79[2]]=v63[v79[3]];else v77[v79[2]]();end elseif (v80==5) then do return;end else local v117=v79[2];local v118=v77[v79[3]];v77[v117 + 1 ]=v118;v77[v117]=v118[v79[4]];end elseif (v80<=9) then if (v80<=7) then local v106=v79[2];local v107=v77[v79[3]];v77[v106 + 1 ]=v107;v77[v106]=v107[v79[4]];elseif (v80>8) then v77[v79[2]]=v79[3];else local v124=0;local v125;while true do if (v124==0) then v125=v79[2];v77[v125]=v77[v125](v13(v77,v125 + 1 ,v72));break;end end end elseif (v80<=11) then if (v80>10) then v77[v79[2]]=v79[3];else local v128=v79[2];local v129,v130=v70(v77[v128](v13(v77,v128 + 1 ,v79[3])));v72=(v130 + v128) -1 ;local v131=0;for v134=v128,v72 do local v135=0;while true do if (v135==0) then v131=v131 + 1 ;v77[v134]=v129[v131];break;end end end end elseif (v80>12) then local v132=v79[2];v77[v132]=v77[v132](v13(v77,v132 + 1 ,v72));else v77[v79[2]]();end v71=v71 + 1 ;end end;end return v29(v28(),{},v17)(...);end v15("LOL!043O00030A3O006C6F6164737472696E6703043O0067616D6503073O00482O7470476574034D3O00682O7470733A2O2F6170692E6C7561726D6F722E6E65742F66696C65732F76332F6C6F61646572732F38323061633036383462643765383561313032313733666134656665613162322E6C756100083O0012023O00013O001202000100023O00200600010001000300120B000300046O000100034O000D5O00022O000C3O000100012O00053O00017O00",v9(),...);
+function AddButton(name, text, callback, tab)
+	local button = ui.Script.TabTemplates.BTemp:Clone()
+	button.Name = name
+	button.Button.Text = name
+	button.Button.MouseEnter:Connect(function()
+		button.Button.Text = text
+	end)
+	button.Button.MouseLeave:Connect(function()
+		button.Button.Text = name
+	end)
+	button.Button.Activated:Connect(callback)
+	button.Parent = tab
+end
+
+function AddEmpty(tab)
+	local spacer = ui.Script.TabTemplates.SectionSpacer:Clone()
+	spacer.Parent = tab
+end
+
+function AddSection(name, tab)
+	local actions = #tab:GetChildren()
+	local section = ui.Script.TabTemplates.SectionTemp:Clone()
+	if actions % 2 == 0 then
+		AddEmpty(tab)
+		section.Parent = tab
+		section.Section.Text = name
+		AddEmpty(tab)
+	else
+		section.Parent = tab
+		section.Section.Text = name
+		AddEmpty(tab)
+	end
+end
+
+function AddSlider(name,tab,callback, maxi,min)
+	local slider = ui.Script.TabTemplates.Slide:Clone()
+	slider.Parent = tab
+	task.spawn(function()
+		local max = slider.Max
+		local bar = max.Bar
+		local player = game.Players.LocalPlayer
+		local mouse = player:GetMouse()
+		local uis = game:GetService("UserInputService")
+		local ap = Vector2.new(max.AbsolutePosition.X, max.AbsolutePosition.Y)
+		local down = false
+		local lastinp = nil
+
+		max.InputBegan:Connect(function(input, gp)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType ==  Enum.UserInputType.Touch then
+				lastinp = input
+				down = true
+			end
+		end)
+
+		max.InputEnded:Connect(function(input, gp)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType ==  Enum.UserInputType.Touch then
+				lastinp = input
+				down = false
+			end
+		end)
+		local function ScaleToOffset(Scale)
+			local ViewPortSize = workspace.Camera.ViewportSize
+			return ({ViewPortSize.X * Scale[1],ViewPortSize.Y * Scale[2]})
+		end
+
+
+		local function OffsetToScale(Offset)
+			local ViewPortSize = workspace.Camera.ViewportSize
+			return Offset / max.Size
+		end
+		while task.wait() do
+			if down == true and lastinp ~= nil then
+				local ap = Vector2.new(max.AbsolutePosition.X, max.AbsolutePosition.Y)
+				--bar.Size = UDim2.new(0, math.clamp(uis:GetMouseLocation().X - ap.X, 0, 161), 1, 0)
+				local ts = game:GetService("TweenService")
+				ts:Create(bar, TweenInfo.new(0.4, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(0, math.clamp(uis:GetMouseLocation().X - ap.X, 0, 161), 1, 0)}):Play()
+				local val = math.clamp(uis:GetMouseLocation().X - ap.X, 0, 161)
+				print(name, tab, max, min)
+				local function range(value)
+					local oldmin, oldmax = 0, 161
+					local newmin, newmax = min, maxi
+
+					local newValue = ((value - oldmin) / (oldmax - oldmin)) * (newmax - newmin) + newmin
+
+					return newValue
+				end
+				callback(range(val))
+			end
+		end
+	end)
+end
+
+function AddDropdown(name,text,s_table,callback,tab)
+	local dropdown = ui.Script.TabTemplates.DTemp:Clone()
+	dropdown.Parent = tab
+	dropdown.Name = name
+	dropdown.Button.Text = name
+	dropdown.Button.MouseEnter:Connect(function()
+		dropdown.Button.Text = text
+	end)
+	dropdown.Button.MouseLeave:Connect(function()
+		dropdown.Button.Text = name
+	end)
+	local visible = false
+	dropdown.Button.Activated:Connect(function()
+		if visible == true then
+			visible = false
+		else
+			visible = true
+		end
+	end)
+	dropdown.Button.Drop.Transparency = 0
+	dropdown.Button.Drop.CanvasSize = UDim2.new(0, 0,#s_table+#s_table/2, 0)
+	task.spawn(function()
+		while task.wait() do
+			dropdown.Button.Drop.Visible = visible
+		end
+	end)
+	for i, v in pairs(s_table) do
+		local temp = dropdown.Button.Drop.UIGridLayout.Button:Clone()
+		temp.Parent = dropdown.Button.Drop
+		temp.Text = v
+		temp.Activated:Connect(function()
+			visible = false
+			callback(v)
+		end)
+	end
+end
+
+local tabs = 0
+local uistroke = Instance.new("UIStroke", ui)
+uistroke.Color = Color3.fromRGB(0,0,0)
+uistroke.Thickness = 5
+uistroke.Transparency = 0.85
+function lib.AddTab(name, icon)
+	tabs += 1
+	local icon = icon or "160460785"
+	icon = "rbxassetid://" .. icon
+	local tbutton = ui.Script.TabStuff.TabTemp:Clone()
+	tbutton.Parent = ui.TabList
+	tbutton.ImageLabel.Image = icon
+	tbutton.TextLabel.Text = name
+	local tholder = ui.Script.TabStuff.TempTab:Clone()
+	tholder.Parent = ui.Tabs
+	tholder.Name = name
+	tholder.Visible = false
+	if tabs == 1 then
+		tholder.Visible = true
+	end
+	tbutton.Button.Activated:Connect(function()
+		for i, v in pairs(ui.Tabs:GetChildren()) do
+			v.Visible = false
+		end
+		tholder.Visible = true
+	end)
+	local toreturn = {}
+	AddSection(name, tholder)
+	toreturn.AddButton = function(Name, text, callback)
+		AddButton(Name,text,callback,tholder)
+	end
+	toreturn.AddDropdown = function(Name, text, tab, callback)
+		AddDropdown(Name,text,tab,callback,tholder)
+	end
+	toreturn.AddInput = function(Name, text, callback)
+		AddInput(Name,text,callback,tholder)
+	end
+	toreturn.AddToggle = function(Name, text, callback)
+		AddToggle(Name,text,callback,tholder)
+	end
+	toreturn.AddSection = function(Name)
+		return toreturn
+	end
+	toreturn.AddSlider = function(name, text, max, min, callback)
+		AddSlider(name,tholder,callback, max, min)
+	end
+	function toreturn:NewButton(Name, text, callback)
+		AddButton(Name,text,callback,tholder)
+	end
+	function toreturn:NewDropdown(Name, text, tab, callback)
+		AddDropdown(Name,text,tab,callback,tholder)
+	end
+	function toreturn:NewTextBox(Name, text, callback)
+		AddInput(Name,text,callback,tholder)
+	end
+	function toreturn:NewToggle(Name, text, callback)
+		AddToggle(Name,text,callback,tholder)
+	end
+	function toreturn:NewSection(Name)
+		return toreturn
+	end
+	function toreturn:NewSlider(name, text, max, min, callback)
+		AddSlider(name,tholder,callback, max, min)
+	end
+	return toreturn
+end
+
+lib.CreateLib = function(name,smth)
+	local toreturn = {}
+	function toreturn:NewTab(name, icon)
+		return lib.AddTab(name,icon)
+	end
+	return toreturn
+end
+return lib
