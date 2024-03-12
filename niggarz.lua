@@ -524,6 +524,7 @@ TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabList.BorderSizePixel = 0
 TabList.Position = UDim2.new(0, 0, 0.13333334, 0)
 TabList.Size = UDim2.new(0, 120, 0, 251)
+TabList.ScrollBarThickness = 0
 task.spawn(function()
 	while task.wait(0.1) do
 		local stuff = 0
@@ -1038,7 +1039,6 @@ function lib.AddTab(name, icon)
 		tholder.Visible = true
 	end)
 	local toreturn = {}
-	AddSection(name, tholder)
 	toreturn.AddButton = function(Name, text, callback)
 		AddButton(Name,text,callback,tholder)
 	end
