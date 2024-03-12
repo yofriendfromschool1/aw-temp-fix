@@ -56,7 +56,7 @@ local TextLabel_2 = Instance.new("TextLabel")
 local ImageLabel_2 = Instance.new("ImageLabel")
 local TempTab = Instance.new("ScrollingFrame")
 local UIGridLayout_2 = Instance.new("UIGridLayout")
-local TabList = Instance.new("Frame")
+local TabList = Instance.new("ScrollingFrame")
 local UIGridLayout_3 = Instance.new("UIGridLayout")
 local Tabs = Instance.new("Folder")
 local Script = Instance.new("Script", ImageLabel)
@@ -420,6 +420,7 @@ UICorner_13.Parent = Button_2
 Drop.Name = "Drop"
 Drop.Parent = Button_2
 Drop.Active = true
+Drop.ZIndex = 2
 Drop.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
 Drop.BackgroundTransparency = 0
 Drop.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -523,6 +524,17 @@ TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabList.BorderSizePixel = 0
 TabList.Position = UDim2.new(0, 0, 0.13333334, 0)
 TabList.Size = UDim2.new(0, 120, 0, 251)
+task.spawn(function()
+	while task.wait(0.1) do
+		local stuff = 0
+		for i, v in pairs(TabList:GetChildren()) do
+			if not v:IsA("UIGridLayout") then
+				stuff += 1
+			end
+		end
+		TabList.CanvasSize = UDim2.new(0, 0, stuff+stuff/2, 0)
+	end
+end)
 
 UIGridLayout_3.Parent = TabList
 UIGridLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
@@ -532,7 +544,7 @@ Tabs.Name = "Tabs"
 Tabs.Parent = ImageLabel
 
 -- Scripts:
-
+local stillup = true
 local function EWJZYI_fake_script() -- ImageLabel.Script 
 	local script = Instance.new('LocalScript', ImageLabel)
 
@@ -733,7 +745,14 @@ local function EWJZYI_fake_script() -- ImageLabel.Script
 	end
 	
 	UpdateOrientation(true)
-	RunService:BindToRenderStep(uid, 2000, UpdateOrientation)
+	task.spawn(function()
+		while task.wait() do
+			if stillup == false then
+				break
+			end
+			UpdateOrientation(true)
+		end
+	end)
 	local UserInputService = game:GetService("UserInputService")
 	local runService = (game:GetService("RunService"));
 	
@@ -791,6 +810,8 @@ local function EWJZYI_fake_script() -- ImageLabel.Script
 		visible = false
 	end)
 	script.Parent.TopBar.Close.Activated:Connect(function()
+		stillup = false
+		wait(0.1)
 		script.Parent.Parent:Destroy()
 		game:GetService("Workspace").Camera.BlurSnox:Destroy()
 		game:GetService("Lighting")[" "]:Destroy()
@@ -864,6 +885,7 @@ function AddButton(name, text, callback, tab)
 	local button = ui.Script.TabTemplates.BTemp:Clone()
 	button.Name = name
 	button.Button.Text = name
+	button.ZIndex = 1
 	button.Button.MouseEnter:Connect(function()
 		button.Button.Text = text
 	end)
@@ -957,6 +979,7 @@ function AddDropdown(name,text,s_table,callback,tab)
 	dropdown.Parent = tab
 	dropdown.Name = name
 	dropdown.Button.Text = name
+	dropdown.ZIndex = 2
 	dropdown.Button.MouseEnter:Connect(function()
 		dropdown.Button.Text = text
 	end)
@@ -1029,6 +1052,7 @@ function lib.AddTab(name, icon)
 		AddToggle(Name,text,callback,tholder)
 	end
 	toreturn.AddSection = function(Name)
+		AddSection(Name, tholder)
 		return toreturn
 	end
 	toreturn.AddSlider = function(name, text, max, min, callback)
@@ -1047,11 +1071,13 @@ function lib.AddTab(name, icon)
 		AddToggle(Name,text,callback,tholder)
 	end
 	function toreturn:NewSection(Name)
+		AddSection(Name,tholder)
 		return toreturn
 	end
 	function toreturn:NewSlider(name, text, max, min, callback)
 		AddSlider(name,tholder,callback, max, min)
 	end
+	toreturn.Source = tholder
 	return toreturn
 end
 
@@ -1062,4 +1088,12 @@ lib.CreateLib = function(name,smth)
 	end
 	return toreturn
 end
-return lib
+--return lib
+local tab = lib.AddTab("Test")
+tab.AddDropdown("Nig", "ger", {"Test", "Test"}, function(val)
+	print(val)
+end)
+AddEmpty(tab.Source)
+tab.AddButton("nig","ger", function()
+	print("nigga")
+end)
