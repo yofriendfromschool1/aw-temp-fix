@@ -1,3 +1,8 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local ScreenGui = Instance.new("ScreenGui")
 local ImageLabel = Instance.new("ImageLabel")
 local UICorner = Instance.new("UICorner")
@@ -56,17 +61,15 @@ local TextLabel_2 = Instance.new("TextLabel")
 local ImageLabel_2 = Instance.new("ImageLabel")
 local TempTab = Instance.new("ScrollingFrame")
 local UIGridLayout_2 = Instance.new("UIGridLayout")
-local TabList = Instance.new("ScrollingFrame")
+local TabList = Instance.new("Frame")
 local UIGridLayout_3 = Instance.new("UIGridLayout")
 local Tabs = Instance.new("Folder")
+local CTabs = Instance.new("Folder")
 local Script = Instance.new("Script", ImageLabel)
-local par = game.Players.LocalPlayer.PlayerGui
-if cloneref then
-	par = cloneref(game:GetService("CoreGui"))
-end
+
 --Properties:
 
-ScreenGui.Parent = par
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageLabel.Parent = ScreenGui
@@ -74,6 +77,7 @@ ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageLabel.BackgroundTransparency = 1.000
 ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ImageLabel.BorderSizePixel = 0
+ImageLabel.ClipsDescendants = true
 ImageLabel.Position = UDim2.new(0.180995479, 0, 0.2781955, 0)
 ImageLabel.Size = UDim2.new(0, 550, 0, 300)
 ImageLabel.Image = "http://www.roblox.com/asset/?id=16710334936"
@@ -95,18 +99,9 @@ TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
-TextLabel.Size = UDim2.new(0, 200, 0, 40)
+TextLabel.Size = UDim2.new(0, 100, 0, 40)
 TextLabel.Font = Enum.Font.Ubuntu
-TextLabel.Text = "Sky Hub - "
-task.spawn(function()
-	while task.wait(0.1) do
-		local currentTime = os.date("*t")
-
-		local hours, mins, secs = currentTime.hour, currentTime.min, currentTime.sec
-
-		TextLabel.Text = "Sky Hub - " .. string.format("%02d:%02d:%02d", hours, mins, secs)
-	end
-end)
+TextLabel.Text = "Sky Hub"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 25.000
 TextLabel.TextWrapped = true
@@ -251,6 +246,7 @@ Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Toggle.BorderSizePixel = 0
 Toggle.Position = UDim2.new(0.0395348854, 0, 0.0769233704, 0)
 Toggle.Size = UDim2.new(0, 33, 0, 33)
+Toggle.AutoButtonColor = false
 Toggle.Font = Enum.Font.Ubuntu
 Toggle.Text = ""
 Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -304,7 +300,7 @@ UICorner_9.Parent = Input
 
 BTemp.Name = "BTemp"
 BTemp.Parent = TabTemplates
-BTemp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BTemp.BackgroundColor3 = Color3.fromRGB(50, 57, 81)
 BTemp.BackgroundTransparency = 1.000
 BTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
 BTemp.BorderSizePixel = 0
@@ -420,13 +416,13 @@ UICorner_13.Parent = Button_2
 Drop.Name = "Drop"
 Drop.Parent = Button_2
 Drop.Active = true
-Drop.ZIndex = 2
 Drop.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Drop.BackgroundTransparency = 0
+Drop.BackgroundTransparency = 0.750
 Drop.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Drop.BorderSizePixel = 0
 Drop.Position = UDim2.new(-0.00333333341, 0, 1.29818165, 0)
 Drop.Size = UDim2.new(0, 150, 0, 127)
+Drop.ZIndex = 2
 Drop.CanvasSize = UDim2.new(0, 0, 4, 0)
 Drop.ScrollBarThickness = 0
 
@@ -441,7 +437,6 @@ UIGridLayout.CellSize = UDim2.new(1, 0, 0, 40)
 Button_3.Name = "Button"
 Button_3.Parent = UIGridLayout
 Button_3.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Button_3.BackgroundTransparency = 0.750
 Button_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button_3.BorderSizePixel = 0
 Button_3.Position = UDim2.new(0.151162788, 0, 0.0769233704, 0)
@@ -524,18 +519,6 @@ TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabList.BorderSizePixel = 0
 TabList.Position = UDim2.new(0, 0, 0.13333334, 0)
 TabList.Size = UDim2.new(0, 120, 0, 251)
-TabList.ScrollBarThickness = 0
-task.spawn(function()
-	while task.wait(0.1) do
-		local stuff = 0
-		for i, v in pairs(TabList:GetChildren()) do
-			if not v:IsA("UIGridLayout") then
-				stuff += 1
-			end
-		end
-		TabList.CanvasSize = UDim2.new(0, 0, stuff+stuff/2, 0)
-	end
-end)
 
 UIGridLayout_3.Parent = TabList
 UIGridLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
@@ -544,9 +527,12 @@ UIGridLayout_3.CellSize = UDim2.new(1, 0, 0, 40)
 Tabs.Name = "Tabs"
 Tabs.Parent = ImageLabel
 
+CTabs.Name = "CTabs"
+CTabs.Parent = ImageLabel
+
 -- Scripts:
-local stillup = true
-local function EWJZYI_fake_script() -- ImageLabel.Script 
+
+local function QUVPB_fake_script() -- ImageLabel.Script 
 	local script = Instance.new('LocalScript', ImageLabel)
 
 	--[[
@@ -602,7 +588,7 @@ local function EWJZYI_fake_script() -- ImageLabel.Script
 		local acos, max, pi, sqrt = math.acos, math.max, math.pi, math.sqrt
 		local sz = 0.2
 	
-		function DrawTriangle(v1, v2, v3, p0, p1) -- I think Stravant wrote this function
+		local function DrawTriangle(v1, v2, v3, p0, p1) -- I think Stravant wrote this function
 			local s1 = (v1 - v2).magnitude
 			local s2 = (v2 - v3).magnitude
 			local s3 = (v3 - v1).magnitude
@@ -626,8 +612,8 @@ local function EWJZYI_fake_script() -- ImageLabel.Script
 			local cf0 = st
 	
 			local Top_Look = (cf0 * za).lookVector
-			local Mid_Point = A + CFrame.new(A, B).lookVector * para
-			local Needed_Look = CFrame.new(Mid_Point, C).lookVector
+			local Mid_Point = A + CFrame.new(A, B).LookVector * para
+			local Needed_Look = CFrame.new(Mid_Point, C).LookVector
 			local dot = Top_Look.x*Needed_Look.x + Top_Look.y*Needed_Look.y + Top_Look.z*Needed_Look.z
 	
 			local ac = CFrame.Angles(0, 0, acos(dot))
@@ -746,14 +732,7 @@ local function EWJZYI_fake_script() -- ImageLabel.Script
 	end
 	
 	UpdateOrientation(true)
-	local backup = game:GetService("RunService").RenderStepped:Connect(function() end)
-	local t = game:GetService("RunService").RenderStepped:Connect(function()
-		if stillup == false then
-			backup:Disconnect()
-		end
-		UpdateOrientation(true)
-	end)
-	backup = t
+	RunService:BindToRenderStep(uid, 2000, UpdateOrientation)
 	local UserInputService = game:GetService("UserInputService")
 	local runService = (game:GetService("RunService"));
 	
@@ -764,14 +743,14 @@ local function EWJZYI_fake_script() -- ImageLabel.Script
 	local dragStart
 	local startPos
 	
-	function Lerp(a, b, m)
+	local function Lerp(a, b, m)
 		return a + (b - a) * m
 	end;
 	
 	local lastMousePos
 	local lastGoalPos
 	local DRAG_SPEED = (8); -- // The speed of the UI darg.
-	function Update(dt)
+	local function Update(dt)
 		if not (startPos) then return end;
 		if not (dragging) and (lastGoalPos) then
 			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
@@ -811,8 +790,6 @@ local function EWJZYI_fake_script() -- ImageLabel.Script
 		visible = false
 	end)
 	script.Parent.TopBar.Close.Activated:Connect(function()
-		stillup = false
-		wait(0.1)
 		script.Parent.Parent:Destroy()
 		game:GetService("Workspace").Camera.BlurSnox:Destroy()
 		game:GetService("Lighting")[" "]:Destroy()
@@ -828,9 +805,41 @@ local function EWJZYI_fake_script() -- ImageLabel.Script
 			script.Parent.Visible = visible
 		end
 	end)
+	
+	--[[
+	local lib = require(script.Parent.Lib)
+	local tab = lib.AddTab("Tabs are over rated")
+	
+	tab.AddButton("Button", "Im a button test", function()
+		print("Testing!")
+	end)
+	tab.AddToggle("Toggle", "Toggle Desc", function(bool)
+		print(bool)
+	end)
+	tab.AddInput("Input", "Placeholder i think", function(out)
+		print(out)
+	end)
+	tab.AddSection("Wha da fuck")
+	tab.AddSlider("Slider1", "Big black cock", 100, 0, function(val)
+		print(val)
+	end)
+	
+	local tab2 = lib.AddTab("Why are most niggers annoying")
+	tab2.AddButton("Why are you black", "Cause im a negro", function()
+		print("Niggers")
+	end)
+	tab2.AddDropdown("Dropdown", "da fuc", {"Option 1", "Option 2", "Option 3"}, function(str)
+		print(str)
+	end)
+	tab2.AddButton("Why are you black", "Cause im a negro", function()
+		print("Niggers")
+	end)
+	tab2.AddButton("Why are you black", "Cause im a negro", function()
+		print("Niggers")
+	end)]]
 end
-coroutine.wrap(EWJZYI_fake_script)()
-
+coroutine.wrap(QUVPB_fake_script)()
+-- Max.SliderManager is disabled.
 local lib = {}
 local tabs = {}
 local ui = ImageLabel
@@ -840,19 +849,34 @@ function AddToggle(name, text, callback, tab)
 	button.Name = name
 	button.Desc.Text = text
 	local enabled = false
+	local deb = false
+	local ts = game:GetService("TweenService")
 	button.Toggle.Activated:Connect(function()
-		if enabled == false then
-			enabled = true
-			button.Toggle.BackgroundColor3 = Color3.fromRGB(250,250,250)
-			button.Toggle.Transparency = 0.3
-		else
-			enabled = false
-			button.Toggle.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-			button.Toggle.Transparency = 0.75
+		if deb == false then
+			if enabled == false then
+				enabled = true
+				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {BackgroundColor3 = Color3.fromRGB(250,250,250)}):Play()
+				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {Transparency = 0.3}):Play()
+				deb = true
+				task.spawn(function()
+					wait(0.25)
+					deb = false
+				end)
+			else
+				enabled = false
+				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {BackgroundColor3 = Color3.fromRGB(29, 29, 29)}):Play()
+				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {Transparency = 0.75}):Play()
+				deb = true
+				task.spawn(function()
+					wait(0.25)
+					deb = false
+				end)
+			end
+			callback(enabled)
 		end
-		callback(enabled)
 	end)
 	button.Parent = tab
+	return button
 end
 
 function AddInput(name, placeholder, callback, tab)
@@ -880,6 +904,7 @@ function AddInput(name, placeholder, callback, tab)
 		callback(button.Input.Text)
 	end)
 	button.Parent = tab
+	return button
 end
 
 function AddButton(name, text, callback, tab)
@@ -895,6 +920,7 @@ function AddButton(name, text, callback, tab)
 	end)
 	button.Button.Activated:Connect(callback)
 	button.Parent = tab
+	return button
 end
 
 function AddEmpty(tab)
@@ -915,6 +941,7 @@ function AddSection(name, tab)
 		section.Section.Text = name
 		AddEmpty(tab)
 	end
+	return section
 end
 
 function AddSlider(name,tab,callback, maxi,min)
@@ -972,6 +999,7 @@ function AddSlider(name,tab,callback, maxi,min)
 			end
 		end
 	end)
+	return slider
 end
 
 function AddDropdown(name,text,s_table,callback,tab)
@@ -1009,6 +1037,7 @@ function AddDropdown(name,text,s_table,callback,tab)
 			callback(v)
 		end)
 	end
+	return dropdown
 end
 
 local tabs = 0
@@ -1016,8 +1045,10 @@ local uistroke = Instance.new("UIStroke", ui)
 uistroke.Color = Color3.fromRGB(0,0,0)
 uistroke.Thickness = 5
 uistroke.Transparency = 0.85
+local tdeb = false
 function lib.AddTab(name, icon)
 	tabs += 1
+	local tname = name
 	local icon = icon or "160460785"
 	icon = "rbxassetid://" .. icon
 	local tbutton = ui.Script.TabStuff.TabTemp:Clone()
@@ -1032,10 +1063,81 @@ function lib.AddTab(name, icon)
 		tholder.Visible = true
 	end
 	tbutton.Button.Activated:Connect(function()
-		for i, v in pairs(ui.Tabs:GetChildren()) do
-			v.Visible = false
+		if tdeb == true then
+			return
 		end
+		tdeb = true
+		local ts = game:GetService("TweenService")
+		for i, v in pairs(ui.Tabs:GetChildren()) do
+			for i, v in pairs(v:GetDescendants()) do
+				if not v:IsA("UIGridLayout") and not v:IsA("UICorner") and not v:IsA("LocalScript") and not v:IsA("UIGradient") and not v:IsA("NumberValue") then
+					if not v:FindFirstChild("Trans") then
+						if v:IsA("TextLabel") or v:IsA("TextBox") or v:IsA("TextButton") then
+							local dat = Instance.new("NumberValue", v)
+							dat.Name = "Trans"
+							dat.Value = v.BackgroundTransparency
+							local dat2 = Instance.new("NumberValue", v)
+							dat2.Name = "TTrans"
+							dat2.Value = v.TextTransparency
+						elseif v:IsA("UIStroke") then
+							local dat = Instance.new("NumberValue", v)
+							dat.Name = "STrans"
+							dat.Value = v.Transparency
+						else
+							local dat = Instance.new("NumberValue", v)
+							dat.Name = "Trans"
+							dat.Value = v.BackgroundTransparency
+						end
+					end
+					--ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = 1}):Play()
+				end
+			end
+			if v ~= tholder then
+				local clone = v--:Clone()
+				v.Parent = ui.CTabs
+				--v.Visible = false
+				for i, v in pairs(clone:GetDescendants()) do
+					if not v:IsA("UIGridLayout") and not v:IsA("UICorner") and not v:IsA("LocalScript") and not v:IsA("UIGradient") and not v:IsA("NumberValue") then
+						--local dat = Instance.new("NumberValue", v)
+						--dat.Name = "Trans"
+						--dat.Value = v.BackgroundTransparency
+						if v:IsA("TextLabel") or v:IsA("TextBox") or v:IsA("TextButton") then
+							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = 1}):Play()
+							ts:Create(v, TweenInfo.new(0.5), {TextTransparency = 1}):Play()
+						elseif v:IsA("UIStroke") then
+							ts:Create(v, TweenInfo.new(0.5), {Transparency = 1}):Play()
+						else
+							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = 1}):Play()
+						end
+						--print("maybe twen")
+					end
+				end
+				task.spawn(function()
+					wait(0.5)
+					v.Visible = false
+				end)
+			end
+		end
+		wait(0.5)
 		tholder.Visible = true
+		tholder.Parent = ui.Tabs
+		for i, v in pairs(tholder:GetChildren()) do
+			if v ~= tholder then
+				for i, v in pairs(v:GetDescendants()) do
+					if not v:IsA("UIGridLayout") and not v:IsA("UICorner") and not v:IsA("LocalScript") and not v:IsA("UIGradient") and not v:IsA("NumberValue") then
+						if v:IsA("TextLabel") or v:IsA("TextBox") or v:IsA("TextButton") then
+							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = v.Trans.Value}):Play()
+							ts:Create(v, TweenInfo.new(0.5), {TextTransparency = v.TTrans.Value}):Play()
+						elseif v:IsA("UIStroke") then
+							ts:Create(v, TweenInfo.new(0.5), {Transparency = v.STrans.Value}):Play()
+						else
+							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = v.Trans.Value}):Play()
+						end
+					end
+				end
+			end
+		end
+		tdeb = false
 	end)
 	local toreturn = {}
 	toreturn.AddButton = function(Name, text, callback)
@@ -1079,6 +1181,16 @@ function lib.AddTab(name, icon)
 	toreturn.Source = tholder
 	return toreturn
 end
+
+task.spawn(function()
+	while task.wait(0.1) do
+		local currentTime = os.date("*t")
+
+		local hours, mins, secs = currentTime.hour, currentTime.min, currentTime.sec
+
+		TextLabel.Text = "Sky Hub - " .. string.format("%02d:%02d:%02d", hours, mins, secs)
+	end
+end)
 
 lib.CreateLib = function(name,smth)
 	local toreturn = {}
