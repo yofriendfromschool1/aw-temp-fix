@@ -960,7 +960,6 @@ function AddSlider(name,tab,callback, maxi,min)
 				local ts = game:GetService("TweenService")
 				ts:Create(bar, TweenInfo.new(0.4, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(0, math.clamp(uis:GetMouseLocation().X - ap.X, 0, 161), 1, 0)}):Play()
 				local val = math.clamp(uis:GetMouseLocation().X - ap.X, 0, 161)
-				print(name, tab, max, min)
 				local function range(value)
 					local oldmin, oldmax = 0, 161
 					local newmin, newmax = min, maxi
