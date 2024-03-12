@@ -745,14 +745,14 @@ local function EWJZYI_fake_script() -- ImageLabel.Script
 	end
 	
 	UpdateOrientation(true)
-	task.spawn(function()
-		while task.wait() do
-			if stillup == false then
-				break
-			end
-			UpdateOrientation(true)
+	local backup = game:GetService("RunService").RenderStepped:Connect(function() end)
+	local t = game:GetService("RunService").RenderStepped:Connect(function()
+		if stillup == false then
+			backup:Disconnect()
 		end
+		UpdateOrientation(true)
 	end)
+	backup = t
 	local UserInputService = game:GetService("UserInputService")
 	local runService = (game:GetService("RunService"));
 	
