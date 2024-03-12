@@ -99,7 +99,7 @@ TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
-TextLabel.Size = UDim2.new(0, 100, 0, 40)
+TextLabel.Size = UDim2.new(0, 200, 0, 40)
 TextLabel.Font = Enum.Font.Ubuntu
 TextLabel.Text = "Sky Hub"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -531,7 +531,7 @@ CTabs.Name = "CTabs"
 CTabs.Parent = ImageLabel
 
 -- Scripts:
-
+local close = false
 local function QUVPB_fake_script() -- ImageLabel.Script 
 	local script = Instance.new('LocalScript', ImageLabel)
 
@@ -685,6 +685,9 @@ local function QUVPB_fake_script() -- ImageLabel.Script
 	end
 	
 	local function UpdateOrientation(fetchProps)
+		if close == true then
+			return
+		end
 		local trans = 0.99
 		if visible == false then
 			trans = 1
@@ -790,6 +793,7 @@ local function QUVPB_fake_script() -- ImageLabel.Script
 		visible = false
 	end)
 	script.Parent.TopBar.Close.Activated:Connect(function()
+		close = true
 		script.Parent.Parent:Destroy()
 		game:GetService("Workspace").Camera.BlurSnox:Destroy()
 		game:GetService("Lighting")[" "]:Destroy()
