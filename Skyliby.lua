@@ -1,8 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
 local ScreenGui = Instance.new("ScreenGui")
 local ImageLabel = Instance.new("ImageLabel")
 local UICorner = Instance.new("UICorner")
@@ -26,6 +21,10 @@ local Frame_5 = Instance.new("Frame")
 local UICorner_6 = Instance.new("UICorner")
 local Frame_6 = Instance.new("Frame")
 local UICorner_7 = Instance.new("UICorner")
+local TabList = Instance.new("ScrollingFrame")
+local UIGridLayout = Instance.new("UIGridLayout")
+local Tabs = Instance.new("Folder")
+local CTabs = Instance.new("Folder")
 local TabTemplates = Instance.new("Folder")
 local TTemp = Instance.new("Frame")
 local Toggle = Instance.new("TextButton")
@@ -51,7 +50,7 @@ local Button_2 = Instance.new("TextButton")
 local UICorner_13 = Instance.new("UICorner")
 local Drop = Instance.new("ScrollingFrame")
 local UICorner_14 = Instance.new("UICorner")
-local UIGridLayout = Instance.new("UIGridLayout")
+local UIGridLayout_2 = Instance.new("UIGridLayout")
 local Button_3 = Instance.new("TextButton")
 local UICorner_15 = Instance.new("UICorner")
 local TabStuff = Instance.new("Folder")
@@ -60,15 +59,8 @@ local Button_4 = Instance.new("TextButton")
 local TextLabel_2 = Instance.new("TextLabel")
 local ImageLabel_2 = Instance.new("ImageLabel")
 local TempTab = Instance.new("ScrollingFrame")
-local UIGridLayout_2 = Instance.new("UIGridLayout")
-local TabList = Instance.new("ScrollingFrame")
 local UIGridLayout_3 = Instance.new("UIGridLayout")
-local Tabs = Instance.new("Folder")
-local CTabs = Instance.new("Folder")
-local Script = Instance.new("Script", ImageLabel)
-task.spawn(function()
-	while task.wait(0.1) do TabList.CanvasSize = UDim2.new(0, 0,#TabList:GetChildren()+#TabList:GetChildren()/2, 0) end
-end)
+
 --Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -229,8 +221,29 @@ Frame_6.Size = UDim2.new(0.100000001, 0, 0.800000012, 0)
 UICorner_7.CornerRadius = UDim.new(0, 500)
 UICorner_7.Parent = Frame_6
 
+TabList.Name = "TabList"
+TabList.Parent = ImageLabel
+TabList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TabList.BackgroundTransparency = 1.000
+TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TabList.BorderSizePixel = 0
+TabList.Position = UDim2.new(0, 0, 0.13333334, 0)
+TabList.Size = UDim2.new(0, 120, 0, 251)
+TabList.CanvasSize = UDim2.new(0, 0, 1.5, 0)
+TabList.ScrollBarThickness = 0
+
+UIGridLayout.Parent = TabList
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.CellSize = UDim2.new(1, 0, 0, 40)
+
+Tabs.Name = "Tabs"
+Tabs.Parent = ImageLabel
+
+CTabs.Name = "CTabs"
+CTabs.Parent = ImageLabel
+
 TabTemplates.Name = "TabTemplates"
-TabTemplates.Parent = Script
+TabTemplates.Parent = game.StarterGui.ScreenGui.ImageLabel.Script
 
 TTemp.Name = "TTemp"
 TTemp.Parent = TabTemplates
@@ -431,13 +444,13 @@ Drop.ScrollBarThickness = 0
 UICorner_14.CornerRadius = UDim.new(0, 5)
 UICorner_14.Parent = Drop
 
-UIGridLayout.Parent = Drop
-UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIGridLayout.CellPadding = UDim2.new(0, 0, 0, 5)
-UIGridLayout.CellSize = UDim2.new(1, 0, 0, 40)
+UIGridLayout_2.Parent = Drop
+UIGridLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout_2.CellPadding = UDim2.new(0, 0, 0, 5)
+UIGridLayout_2.CellSize = UDim2.new(1, 0, 0, 40)
 
 Button_3.Name = "Button"
-Button_3.Parent = UIGridLayout
+Button_3.Parent = UIGridLayout_2
 Button_3.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
 Button_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button_3.BorderSizePixel = 0
@@ -451,7 +464,7 @@ UICorner_15.CornerRadius = UDim.new(0, 5)
 UICorner_15.Parent = Button_3
 
 TabStuff.Name = "TabStuff"
-TabStuff.Parent = Script
+TabStuff.Parent = game.StarterGui.ScreenGui.ImageLabel.Script
 
 TabTemp.Name = "TabTemp"
 TabTemp.Parent = TabStuff
@@ -508,47 +521,28 @@ TempTab.Size = UDim2.new(0, 430, 0, 260)
 TempTab.CanvasSize = UDim2.new(0, 0, 8, 0)
 TempTab.ScrollBarThickness = 0
 
-UIGridLayout_2.Parent = TempTab
-UIGridLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
-UIGridLayout_2.CellPadding = UDim2.new(0, 0, 0, 5)
-UIGridLayout_2.CellSize = UDim2.new(0.5, 0, 0, 40)
-
-TabList.Name = "TabList"
-TabList.Parent = ImageLabel
-TabList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TabList.BackgroundTransparency = 1.000
-TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TabList.BorderSizePixel = 0
-TabList.Position = UDim2.new(0, 0, 0.13333334, 0)
-TabList.Size = UDim2.new(0, 120, 0, 251)
-
-UIGridLayout_3.Parent = TabList
+UIGridLayout_3.Parent = TempTab
 UIGridLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
-UIGridLayout_3.CellSize = UDim2.new(1, 0, 0, 40)
-
-Tabs.Name = "Tabs"
-Tabs.Parent = ImageLabel
-
-CTabs.Name = "CTabs"
-CTabs.Parent = ImageLabel
+UIGridLayout_3.CellPadding = UDim2.new(0, 0, 0, 5)
+UIGridLayout_3.CellSize = UDim2.new(0.5, 0, 0, 40)
 
 -- Scripts:
 local close = false
-local function QUVPB_fake_script() -- ImageLabel.Script 
+local function HLBC_fake_script() -- ImageLabel.Script 
 	local script = Instance.new('LocalScript', ImageLabel)
 
 	--[[
-	
-	Version 6.0
-	
-	Max Intensity: 1
-	
-	Original: https://devforum.roblox.com/t/how-to-make-ui-gaussian-blur/1238701
-	Automated(Current Script): https://devforum.roblox.com/t/new-ui-blur-fully-automatic/2402850
-	
-	Credits: Original Creator @googleUSE, Moder and automater thingy majingy @ImSnox
-	
-	]]
+		
+		Version 6.0
+		
+		Max Intensity: 1
+		
+		Original: https://devforum.roblox.com/t/how-to-make-ui-gaussian-blur/1238701
+		Automated(Current Script): https://devforum.roblox.com/t/new-ui-blur-fully-automatic/2402850
+		
+		Credits: Original Creator @googleUSE, Moder and automater thingy majingy @ImSnox
+		
+		]]
 	
 	local BlurIntensity = 0.4
 	
@@ -812,40 +806,40 @@ local function QUVPB_fake_script() -- ImageLabel.Script
 		end
 	end)
 	
-	--[[
-	local lib = require(script.Parent.Lib)
-	local tab = lib.AddTab("Tabs are over rated")
-	
-	tab.AddButton("Button", "Im a button test", function()
-		print("Testing!")
-	end)
-	tab.AddToggle("Toggle", "Toggle Desc", function(bool)
-		print(bool)
-	end)
-	tab.AddInput("Input", "Placeholder i think", function(out)
-		print(out)
-	end)
-	tab.AddSection("Wha da fuck")
-	tab.AddSlider("Slider1", "Big black cock", 100, 0, function(val)
-		print(val)
-	end)
-	
-	local tab2 = lib.AddTab("Why are most niggers annoying")
-	tab2.AddButton("Why are you black", "Cause im a negro", function()
-		print("Niggers")
-	end)
-	tab2.AddDropdown("Dropdown", "da fuc", {"Option 1", "Option 2", "Option 3"}, function(str)
-		print(str)
-	end)
-	tab2.AddButton("Why are you black", "Cause im a negro", function()
-		print("Niggers")
-	end)
-	tab2.AddButton("Why are you black", "Cause im a negro", function()
-		print("Niggers")
-	end)]]
+		--[[
+		local lib = require(script.Parent.Lib)
+		local tab = lib.AddTab("Tabs are over rated")
+		
+		tab.AddButton("Button", "Im a button test", function()
+			print("Testing!")
+		end)
+		tab.AddToggle("Toggle", "Toggle Desc", function(bool)
+			print(bool)
+		end)
+		tab.AddInput("Input", "Placeholder i think", function(out)
+			print(out)
+		end)
+		tab.AddSection("Wha da fuck")
+		tab.AddSlider("Slider1", "Big black cock", 100, 0, function(val)
+			print(val)
+		end)
+		
+		local tab2 = lib.AddTab("Why are most niggers annoying")
+		tab2.AddButton("Why are you black", "Cause im a negro", function()
+			print("Niggers")
+		end)
+		tab2.AddDropdown("Dropdown", "da fuc", {"Option 1", "Option 2", "Option 3"}, function(str)
+			print(str)
+		end)
+		tab2.AddButton("Why are you black", "Cause im a negro", function()
+			print("Niggers")
+		end)
+		tab2.AddButton("Why are you black", "Cause im a negro", function()
+			print("Niggers")
+		end)]]
 end
-coroutine.wrap(QUVPB_fake_script)()
--- Max.SliderManager is disabled.
+coroutine.wrap(HLBC_fake_script)()
+
 local lib = {}
 local tabs = {}
 local ui = ImageLabel
@@ -853,7 +847,13 @@ local ui = ImageLabel
 function AddToggle(name, text, callback, tab)
 	local button = ui.Script.TabTemplates.TTemp:Clone()
 	button.Name = name
-	button.Desc.Text = text
+	button.Desc.Text = name
+	button.Desc.MouseEnter:Connect(function()
+		button.Desc.Text = text
+	end)
+	button.Desc.MouseLeave:Connect(function()
+		button.Desc.Text = name
+	end)
 	local enabled = false
 	local deb = false
 	local ts = game:GetService("TweenService")
@@ -920,9 +920,11 @@ function AddButton(name, text, callback, tab)
 	button.ZIndex = 1
 	button.Button.MouseEnter:Connect(function()
 		button.Button.Text = text
+		button.Button.TextScaled = true
 	end)
 	button.Button.MouseLeave:Connect(function()
 		button.Button.Text = name
+		button.Button.TextScaled = false
 	end)
 	button.Button.Activated:Connect(callback)
 	button.Parent = tab
@@ -1006,7 +1008,7 @@ function AddSlider(name,tab,callback, maxi,min)
 
 					return newValue
 				end
-				text.Text = tostring(range(val))
+				text.Text = name .. " " .. tostring(math.round(range(val)))
 				callback(range(val))
 			end
 		end
@@ -1200,7 +1202,7 @@ task.spawn(function()
 
 		local hours, mins, secs = currentTime.hour, currentTime.min, currentTime.sec
 
-		TextLabel.Text = "Sky Hub - " .. string.format("%02d:%02d:%02d", hours, mins, secs)
+		ui.TopBar.TextLabel.Text = "Sky Hub - " .. string.format("%02d:%02d:%02d", hours, mins, secs)
 	end
 end)
 
