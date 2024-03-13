@@ -905,9 +905,6 @@ function AddInput(name, placeholder, callback, tab)
 		if button.Input.Text == "" then
 			return
 		end
-		if button.Input.Text == previousinput then
-			return
-		end
 		previousinput = button.Input.Text
 		callback(button.Input.Text)
 	end)
