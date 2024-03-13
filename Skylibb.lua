@@ -60,6 +60,8 @@ local TextLabel_2 = Instance.new("TextLabel")
 local ImageLabel_2 = Instance.new("ImageLabel")
 local TempTab = Instance.new("ScrollingFrame")
 local UIGridLayout_3 = Instance.new("UIGridLayout")
+local Script = Instance.new("Script", ImageLabel)
+Script.Name = "Script"
 
 --Properties:
 
@@ -243,7 +245,7 @@ CTabs.Name = "CTabs"
 CTabs.Parent = ImageLabel
 
 TabTemplates.Name = "TabTemplates"
-TabTemplates.Parent = game.StarterGui.ScreenGui.ImageLabel.Script
+TabTemplates.Parent = Script
 
 TTemp.Name = "TTemp"
 TTemp.Parent = TabTemplates
@@ -464,7 +466,7 @@ UICorner_15.CornerRadius = UDim.new(0, 5)
 UICorner_15.Parent = Button_3
 
 TabStuff.Name = "TabStuff"
-TabStuff.Parent = game.StarterGui.ScreenGui.ImageLabel.Script
+TabStuff.Parent = Script
 
 TabTemp.Name = "TabTemp"
 TabTemp.Parent = TabStuff
