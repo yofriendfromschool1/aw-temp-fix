@@ -6,11 +6,9 @@ local TextLabel = Instance.new("TextLabel")
 local UIGradient = Instance.new("UIGradient")
 local Minimize = Instance.new("TextButton")
 local Rot = Instance.new("Frame")
-local Frame = Instance.new("Frame")
 local UICorner_2 = Instance.new("UICorner")
 local Frame_2 = Instance.new("Frame")
 local UICorner_3 = Instance.new("UICorner")
-local Rot_2 = Instance.new("Frame")
 local Frame_3 = Instance.new("Frame")
 local UICorner_4 = Instance.new("UICorner")
 local Frame_4 = Instance.new("Frame")
@@ -64,8 +62,16 @@ local Script = Instance.new("Script", ImageLabel)
 Script.Name = "Script"
 
 --Properties:
+if game:WaitForChild("CoreGui") then
+	if cloneref then
+		ScreenGui.Parent = cloneref(game:GetService("CoreGui"))
+	else
+		ScreenGui.Parent = game:GetService("CoreGui")
+	end
+else
+	ScreenGui.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+end
 
-ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageLabel.Parent = ScreenGui
@@ -129,13 +135,6 @@ Rot.Position = UDim2.new(0.125, 0, 0.125, 0)
 Rot.Rotation = 90.000
 Rot.Size = UDim2.new(0.75, 0, 0.75, 0)
 
-Frame.Parent = Rot
-Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.800000012, 0, 0.100000001, 0)
-Frame.Size = UDim2.new(0.100000001, 0, 0.800000012, 0)
-
 UICorner_2.CornerRadius = UDim.new(0, 500)
 UICorner_2.Parent = Frame
 
@@ -143,40 +142,11 @@ Frame_2.Parent = Rot
 Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame_2.BorderSizePixel = 0
-Frame_2.Position = UDim2.new(0.100000001, 0, 0.100000001, 0)
+Frame_2.Position = UDim2.new(0.80000001, 0, 0.100000001, 0)
 Frame_2.Size = UDim2.new(0.100000001, 0, 0.800000012, 0)
 
 UICorner_3.CornerRadius = UDim.new(0, 500)
 UICorner_3.Parent = Frame_2
-
-Rot_2.Name = "Rot"
-Rot_2.Parent = Minimize
-Rot_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Rot_2.BackgroundTransparency = 1.000
-Rot_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Rot_2.BorderSizePixel = 0
-Rot_2.Position = UDim2.new(0.125, 0, 0.125, 0)
-Rot_2.Size = UDim2.new(0.75, 0, 0.75, 0)
-
-Frame_3.Parent = Rot_2
-Frame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Frame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame_3.BorderSizePixel = 0
-Frame_3.Position = UDim2.new(0.800000012, 0, 0.100000001, 0)
-Frame_3.Size = UDim2.new(0.100000001, 0, 0.800000012, 0)
-
-UICorner_4.CornerRadius = UDim.new(0, 500)
-UICorner_4.Parent = Frame_3
-
-Frame_4.Parent = Rot_2
-Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Frame_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame_4.BorderSizePixel = 0
-Frame_4.Position = UDim2.new(0.100000001, 0, 0.100000001, 0)
-Frame_4.Size = UDim2.new(0.100000001, 0, 0.800000012, 0)
-
-UICorner_5.CornerRadius = UDim.new(0, 500)
-UICorner_5.Parent = Frame_4
 
 Close.Name = "Close"
 Close.Parent = TopBar
@@ -798,7 +768,7 @@ local function HLBC_fake_script() -- ImageLabel.Script
 	end)
 	local uis = game:GetService("UserInputService")
 	uis.InputBegan:Connect(function(inp)
-		if inp.KeyCode == Enum.KeyCode.LeftShift then
+		if inp.KeyCode == Enum.KeyCode.RightControl then
 			visible = true
 		end
 	end)
