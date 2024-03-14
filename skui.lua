@@ -60,6 +60,28 @@ local TempTab = Instance.new("ScrollingFrame")
 local UIGridLayout_3 = Instance.new("UIGridLayout")
 local Script = Instance.new("Script", ImageLabel)
 Script.Name = "Script"
+UserInputService = game:GetService("UserInputService")
+local IsOnMobile = table.find({
+	Enum.Platform.IOS,
+	Enum.Platform.Android
+}, UserInputService:GetPlatform())
+local Sky = {}
+if IsOnMobile then
+	Sky["Ui"] = Instance.new("ScreenGui", gethui())
+	Sky["Ui"].Name = "skyhubtoggle"
+
+	Sky["DaIcon"] = Instance.new("ImageButton", Sky["Ui"])
+	Sky["DaIcon"].Size = UDim2.new(0,45,0,45)
+	Sky["DaIcon"].Position = UDim2.new(.001,0,0.5,0)
+	Sky["DaIcon"].Draggable = true
+	Sky["DaIcon"].Image = "http://www.roblox.com/asset/?id=16710334936"
+	Sky["DaIcon"].BackgroundColor3 = Color3.fromRGB(17, 36, 66)
+	Sky["das"] = Instance.new("UICorner", Sky["DaIcon"]);
+	Sky["das"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
+	Sky["DaIcon"].Visible = false
+else
+
+end
 
 --Properties:
 if game:WaitForChild("CoreGui") then
@@ -71,7 +93,7 @@ if game:WaitForChild("CoreGui") then
 else
 	ScreenGui.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 end
-
+ScreenGui.Name = "skyhub"
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageLabel.Parent = ScreenGui
@@ -758,7 +780,12 @@ local function HLBC_fake_script() -- ImageLabel.Script
 	
 	runService.Heartbeat:Connect(Update)
 	script.Parent.TopBar.Minimize.Activated:Connect(function()
-		visible = false
+		if IsOnMobile then
+			Sky["DaIcon"].Visible = true
+    		visible = false
+		else
+			visible = false
+		end
 	end)
 	script.Parent.TopBar.Close.Activated:Connect(function()
 		close = true
@@ -768,8 +795,19 @@ local function HLBC_fake_script() -- ImageLabel.Script
 	end)
 	local uis = game:GetService("UserInputService")
 	uis.InputBegan:Connect(function(inp)
-		if inp.KeyCode == Enum.KeyCode.RightControl then
-			visible = true
+		if IsOnMobile then
+			Sky["DaIcon"].MouseButton1Click:Connect(function()
+				Sky["DaIcon"].Visible = false
+				for i,v in pairs(game:GetService("CoreGui"):GetChildren()) do
+					if v.Name == "skyhub" then
+						visible = true
+					end
+				end
+			end)
+		else
+			if inp.KeyCode == Enum.KeyCode.RightControl then
+				visible = true
+			end
 		end
 	end)
 	task.spawn(function()
@@ -1164,7 +1202,6 @@ function lib.AddTab(name, icon)
 	toreturn.Source = tholder
 	return toreturn
 end
-
 task.spawn(function()
 	while task.wait(0.1) do
 		local currentTime = os.date("*t")
