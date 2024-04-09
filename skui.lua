@@ -1202,18 +1202,20 @@ function lib.AddTab(name, icon)
 	toreturn.Source = tholder
 	return toreturn
 end
+local nam = "Sky Hub"
 task.spawn(function()
 	while task.wait(0.1) do
 		local currentTime = os.date("*t")
 
 		local hours, mins, secs = currentTime.hour, currentTime.min, currentTime.sec
 
-		ui.TopBar.TextLabel.Text = "Sky Hub - " .. string.format("%02d:%02d:%02d", hours, mins, secs)
+		ui.TopBar.TextLabel.Text = nam .. " - " .. string.format("%02d:%02d:%02d", hours, mins, secs)
 	end
 end)
 
 lib.CreateLib = function(name,smth)
 	local toreturn = {}
+	nam = name
 	function toreturn:NewTab(name, icon)
 		return lib.AddTab(name,icon)
 	end
