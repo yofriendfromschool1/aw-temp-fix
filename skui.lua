@@ -99,7 +99,14 @@ ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageLabel.Parent = ScreenGui
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.BackgroundTransparency = 1.000
+getgenv().SkyT = 1
+local transpar = getgenv().SkyT
+task.spawn(function()
+	while task.wait() do
+		transpar = getgenv().Skyt
+	end
+end)
+ImageLabel.BackgroundTransparency = 1
 ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ImageLabel.BorderSizePixel = 0
 ImageLabel.ClipsDescendants = true
@@ -107,21 +114,21 @@ ImageLabel.Position = UDim2.new(0.180995479, 0, 0.2781955, 0)
 ImageLabel.Size = UDim2.new(0, 550, 0, 300)
 ImageLabel.Image = "http://www.roblox.com/asset/?id=16710334936"
 ImageLabel.ImageColor3 = Color3.fromRGB(89, 89, 89)
-ImageLabel.ImageTransparency = 0.150
+ImageLabel.ImageTransparency = 0.150 * transpar
 
 UICorner.Parent = ImageLabel
 
 TopBar.Name = "TopBar"
 TopBar.Parent = ImageLabel
 TopBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TopBar.BackgroundTransparency = 0.900
+TopBar.BackgroundTransparency = 0.900 * transpar
 TopBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TopBar.BorderSizePixel = 0
 TopBar.Size = UDim2.new(1, 0, 0, 40)
 
 TextLabel.Parent = TopBar
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
+TextLabel.BackgroundTransparency = 1
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
 TextLabel.Size = UDim2.new(0, 200, 0, 40)
@@ -138,7 +145,7 @@ UIGradient.Parent = TopBar
 Minimize.Name = "Minimize"
 Minimize.Parent = TopBar
 Minimize.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
-Minimize.BackgroundTransparency = 1.000
+Minimize.BackgroundTransparency = 1
 Minimize.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Minimize.BorderSizePixel = 0
 Minimize.Position = UDim2.new(0, 470, 0, 0)
@@ -151,15 +158,13 @@ Minimize.TextSize = 14.000
 Rot.Name = "Rot"
 Rot.Parent = Minimize
 Rot.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Rot.BackgroundTransparency = 1.000
+Rot.BackgroundTransparency = 1
 Rot.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Rot.BorderSizePixel = 0
 Rot.Position = UDim2.new(0.125, 0, 0.125, 0)
 Rot.Rotation = 90.000
 Rot.Size = UDim2.new(0.75, 0, 0.75, 0)
 
-UICorner_2.CornerRadius = UDim.new(0, 500)
-UICorner_2.Parent = Frame
 
 Frame_2.Parent = Rot
 Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -174,7 +179,7 @@ UICorner_3.Parent = Frame_2
 Close.Name = "Close"
 Close.Parent = TopBar
 Close.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
-Close.BackgroundTransparency = 1.000
+Close.BackgroundTransparency = 1
 Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Close.BorderSizePixel = 0
 Close.Position = UDim2.new(0, 510, 0, 0)
@@ -188,7 +193,7 @@ Close.TextSize = 14.000
 Rot_3.Name = "Rot"
 Rot_3.Parent = Close
 Rot_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Rot_3.BackgroundTransparency = 1.000
+Rot_3.BackgroundTransparency = 1
 Rot_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Rot_3.BorderSizePixel = 0
 Rot_3.Position = UDim2.new(0.125, 0, 0.125, 0)
@@ -219,7 +224,7 @@ UICorner_7.Parent = Frame_6
 TabList.Name = "TabList"
 TabList.Parent = ImageLabel
 TabList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TabList.BackgroundTransparency = 1.000
+TabList.BackgroundTransparency = 1
 TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabList.BorderSizePixel = 0
 TabList.Position = UDim2.new(0, 0, 0.13333334, 0)
@@ -243,7 +248,7 @@ TabTemplates.Parent = Script
 TTemp.Name = "TTemp"
 TTemp.Parent = TabTemplates
 TTemp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TTemp.BackgroundTransparency = 1.000
+TTemp.BackgroundTransparency = 1
 TTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TTemp.BorderSizePixel = 0
 TTemp.Size = UDim2.new(0, 100, 0, 100)
@@ -251,7 +256,7 @@ TTemp.Size = UDim2.new(0, 100, 0, 100)
 Toggle.Name = "Toggle"
 Toggle.Parent = TTemp
 Toggle.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Toggle.BackgroundTransparency = 0.750
+Toggle.BackgroundTransparency = 0.750 * transpar
 Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Toggle.BorderSizePixel = 0
 Toggle.Position = UDim2.new(0.0395348854, 0, 0.0769233704, 0)
@@ -268,7 +273,7 @@ UICorner_8.Parent = Toggle
 Desc.Name = "Desc"
 Desc.Parent = TTemp
 Desc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Desc.BackgroundTransparency = 1.000
+Desc.BackgroundTransparency = 1
 Desc.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Desc.BorderSizePixel = 0
 Desc.Position = UDim2.new(0.274418592, 0, 0.174999997, 0)
@@ -284,7 +289,7 @@ Desc.TextXAlignment = Enum.TextXAlignment.Left
 ITemp.Name = "ITemp"
 ITemp.Parent = TabTemplates
 ITemp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ITemp.BackgroundTransparency = 1.000
+ITemp.BackgroundTransparency = 1
 ITemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ITemp.BorderSizePixel = 0
 ITemp.Size = UDim2.new(0, 100, 0, 100)
@@ -292,7 +297,7 @@ ITemp.Size = UDim2.new(0, 100, 0, 100)
 Input.Name = "Input"
 Input.Parent = ITemp
 Input.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Input.BackgroundTransparency = 0.750
+Input.BackgroundTransparency = 0.750 * transpar
 Input.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Input.BorderSizePixel = 0
 Input.Position = UDim2.new(0.150999993, 0, 0.0769999996, 0)
@@ -311,7 +316,7 @@ UICorner_9.Parent = Input
 BTemp.Name = "BTemp"
 BTemp.Parent = TabTemplates
 BTemp.BackgroundColor3 = Color3.fromRGB(50, 57, 81)
-BTemp.BackgroundTransparency = 1.000
+BTemp.BackgroundTransparency = 1
 BTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
 BTemp.BorderSizePixel = 0
 BTemp.Size = UDim2.new(0, 100, 0, 100)
@@ -319,7 +324,7 @@ BTemp.Size = UDim2.new(0, 100, 0, 100)
 Button.Name = "Button"
 Button.Parent = BTemp
 Button.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Button.BackgroundTransparency = 0.750
+Button.BackgroundTransparency = 0.750 * transpar
 Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button.BorderSizePixel = 0
 Button.Position = UDim2.new(0.151162788, 0, 0.0769233704, 0)
@@ -334,7 +339,7 @@ UICorner_10.Parent = Button
 SectionTemp.Name = "SectionTemp"
 SectionTemp.Parent = TabTemplates
 SectionTemp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-SectionTemp.BackgroundTransparency = 1.000
+SectionTemp.BackgroundTransparency = 1
 SectionTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
 SectionTemp.BorderSizePixel = 0
 SectionTemp.Size = UDim2.new(0, 100, 0, 100)
@@ -342,7 +347,7 @@ SectionTemp.Size = UDim2.new(0, 100, 0, 100)
 Section.Name = "Section"
 Section.Parent = SectionTemp
 Section.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Section.BackgroundTransparency = 1.000
+Section.BackgroundTransparency = 1
 Section.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Section.BorderSizePixel = 0
 Section.Position = UDim2.new(0.0500000007, 0, 0.25, 0)
@@ -366,7 +371,7 @@ SectionSpacer.Size = UDim2.new(0, 100, 0, 100)
 Slide.Name = "Slide"
 Slide.Parent = TabTemplates
 Slide.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Slide.BackgroundTransparency = 1.000
+Slide.BackgroundTransparency = 1
 Slide.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Slide.BorderSizePixel = 0
 Slide.Size = UDim2.new(0, 100, 0, 100)
@@ -375,7 +380,7 @@ Max.Name = "Max"
 Max.Parent = Slide
 Max.AnchorPoint = Vector2.new(0.5, 0.5)
 Max.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Max.BackgroundTransparency = 0.500
+Max.BackgroundTransparency = 0.500 * transpar
 Max.BorderSizePixel = 0
 Max.Position = UDim2.new(0.5, 0, 0.5, 0)
 Max.Size = UDim2.new(0.75, 0, 0.400000006, 0)
@@ -402,7 +407,7 @@ UICorner_12.Parent = Max
 DTemp.Name = "DTemp"
 DTemp.Parent = TabTemplates
 DTemp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-DTemp.BackgroundTransparency = 1.000
+DTemp.BackgroundTransparency = 1
 DTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
 DTemp.BorderSizePixel = 0
 DTemp.Position = UDim2.new(0.674208164, 0, 0.454838723, 0)
@@ -411,7 +416,7 @@ DTemp.Size = UDim2.new(0, 100, 0, 100)
 Button_2.Name = "Button"
 Button_2.Parent = DTemp
 Button_2.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Button_2.BackgroundTransparency = 0.750
+Button_2.BackgroundTransparency = 0.750 * transpar
 Button_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button_2.BorderSizePixel = 0
 Button_2.Position = UDim2.new(0.151162788, 0, 0.0769233704, 0)
@@ -427,7 +432,7 @@ Drop.Name = "Drop"
 Drop.Parent = Button_2
 Drop.Active = true
 Drop.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Drop.BackgroundTransparency = 0.750
+Drop.BackgroundTransparency = 0.750 * transpar
 Drop.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Drop.BorderSizePixel = 0
 Drop.Position = UDim2.new(-0.00333333341, 0, 1.29818165, 0)
@@ -464,7 +469,7 @@ TabStuff.Parent = Script
 TabTemp.Name = "TabTemp"
 TabTemp.Parent = TabStuff
 TabTemp.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-TabTemp.BackgroundTransparency = 0.900
+TabTemp.BackgroundTransparency = 0.900 * transpar
 TabTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabTemp.BorderSizePixel = 0
 TabTemp.Size = UDim2.new(0, 100, 0, 100)
@@ -472,7 +477,7 @@ TabTemp.Size = UDim2.new(0, 100, 0, 100)
 Button_4.Name = "Button"
 Button_4.Parent = TabTemp
 Button_4.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Button_4.BackgroundTransparency = 1.000
+Button_4.BackgroundTransparency = 1
 Button_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button_4.BorderSizePixel = 0
 Button_4.Size = UDim2.new(1, 0, 1, 0)
@@ -483,7 +488,7 @@ Button_4.TextSize = 20.000
 
 TextLabel_2.Parent = TabTemp
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BackgroundTransparency = 1
 TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel_2.BorderSizePixel = 0
 TextLabel_2.Position = UDim2.new(0.333333343, 0, 0.174999997, 0)
@@ -497,7 +502,7 @@ TextLabel_2.TextWrapped = true
 
 ImageLabel_2.Parent = TabTemp
 ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel_2.BackgroundTransparency = 1.000
+ImageLabel_2.BackgroundTransparency = 1
 ImageLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ImageLabel_2.BorderSizePixel = 0
 ImageLabel_2.Position = UDim2.new(0.0833333358, 0, 0.125, 0)
@@ -508,7 +513,7 @@ TempTab.Name = "TempTab"
 TempTab.Parent = TabStuff
 TempTab.Active = true
 TempTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TempTab.BackgroundTransparency = 1.000
+TempTab.BackgroundTransparency = 1
 TempTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TempTab.BorderSizePixel = 0
 TempTab.Position = UDim2.new(0.217999995, 0, 0.133000001, 0)
@@ -538,12 +543,16 @@ local function HLBC_fake_script() -- ImageLabel.Script
 		Credits: Original Creator @googleUSE, Moder and automater thingy majingy @ImSnox
 		
 		]]
-
-	local BlurIntensity = 0.4
+	getgenv().BlurIntes = 0.4
+	local BlurIntensity = getgenv().BlurIntes task.spawn(function()
+		while task.wait() do
+			BlurIntensity = getgenv().BlurIntes
+		end
+	end)
 
 	local RunService = game:GetService('RunService')
 	local camera = workspace.CurrentCamera
-	local MTREL = "Glass"
+	local MTREL = ""
 	local binds = {}
 	local root = Instance.new('Folder', camera)
 
@@ -630,7 +639,7 @@ local function HLBC_fake_script() -- ImageLabel.Script
 				p0.Anchored = true
 				p0.CanCollide = false
 				p0.CastShadow = false
-				p0.Material = MTREL
+				p0.Material = Enum.Material.Neon
 				p0.Size = Vector3.new(sz, sz, sz)
 				local mesh = Instance.new('SpecialMesh', p0)
 				mesh.MeshType = 2
@@ -873,7 +882,7 @@ function AddToggle(name, text, callback, tab)
 			if enabled == false then
 				enabled = true
 				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {BackgroundColor3 = Color3.fromRGB(250,250,250)}):Play()
-				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {Transparency = 0.3}):Play()
+				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {Transparency = 0.3 * transpar}):Play()
 				deb = true
 				task.spawn(function()
 					wait(0.25)
@@ -882,7 +891,7 @@ function AddToggle(name, text, callback, tab)
 			else
 				enabled = false
 				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {BackgroundColor3 = Color3.fromRGB(29, 29, 29)}):Play()
-				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {Transparency = 0.75}):Play()
+				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {Transparency = 0.75 * transpar}):Play()
 				deb = true
 				task.spawn(function()
 					wait(0.25)
@@ -1066,7 +1075,7 @@ local tabs = 0
 local uistroke = Instance.new("UIStroke", ui)
 uistroke.Color = Color3.fromRGB(0,0,0)
 uistroke.Thickness = 5
-uistroke.Transparency = 0.85
+uistroke.Transparency = 0.85 * transpar
 local tdeb = false
 function lib.AddTab(name, icon)
 	tabs += 1
@@ -1148,12 +1157,12 @@ function lib.AddTab(name, icon)
 				for i, v in pairs(v:GetDescendants()) do
 					if not v:IsA("UIGridLayout") and not v:IsA("UICorner") and not v:IsA("LocalScript") and not v:IsA("UIGradient") and not v:IsA("NumberValue") then
 						if v:IsA("TextLabel") or v:IsA("TextBox") or v:IsA("TextButton") then
-							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = v.Trans.Value}):Play()
-							ts:Create(v, TweenInfo.new(0.5), {TextTransparency = v.TTrans.Value}):Play()
+							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = v.Trans.Value * transpar}):Play()
+							ts:Create(v, TweenInfo.new(0.5), {TextTransparency = v.TTrans.Value * transpar}):Play()
 						elseif v:IsA("UIStroke") then
-							ts:Create(v, TweenInfo.new(0.5), {Transparency = v.STrans.Value}):Play()
+							ts:Create(v, TweenInfo.new(0.5), {Transparency = v.STrans.Value * transpar}):Play()
 						else
-							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = v.Trans.Value}):Play()
+							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = v.Trans.Value * transpar}):Play()
 						end
 					end
 				end
@@ -1242,7 +1251,7 @@ NotifLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Center.Name = "Center"
 Center.Parent = NotifLib
 Center.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Center.BackgroundTransparency = 1.000
+Center.BackgroundTransparency = 1
 Center.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Center.BorderSizePixel = 0
 Center.Position = UDim2.new(0.5, 0, 0, 0)
@@ -1251,7 +1260,7 @@ Center.Size = UDim2.new(0, 1, 0, 1)
 Holder.Name = "Holder"
 Holder.Parent = Center
 Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Holder.BackgroundTransparency = 1.000
+Holder.BackgroundTransparency = 1
 Holder.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Holder.BorderSizePixel = 0
 Holder.Position = UDim2.new(-124, 0, 16, 0)
@@ -1260,7 +1269,7 @@ Holder.Size = UDim2.new(0, 250, 0, 300)
 Template.Name = "Template"
 Template.Parent = Holder
 Template.BackgroundColor3 = Color3.fromRGB(25, 29, 38)
-Template.BackgroundTransparency = 0.400
+Template.BackgroundTransparency = 0.400 * transpar
 Template.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Template.BorderSizePixel = 0
 Template.Position = UDim2.new(0, -124, 0, 16)
@@ -1272,7 +1281,7 @@ UICorner.Parent = Template
 Main.Name = "Main"
 Main.Parent = Template
 Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Main.BackgroundTransparency = 1.000
+Main.BackgroundTransparency = 1
 Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.200000003, 0, 0.0900000036, 0)
@@ -1287,7 +1296,7 @@ Main.TextWrapped = true
 Secondary.Name = "Secondary"
 Secondary.Parent = Template
 Secondary.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Secondary.BackgroundTransparency = 1.000
+Secondary.BackgroundTransparency = 1
 Secondary.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Secondary.BorderSizePixel = 0
 Secondary.Position = UDim2.new(0.100000001, 0, 0.340000004, 0)
@@ -1302,7 +1311,7 @@ Secondary.TextWrapped = true
 Y.Name = "Y"
 Y.Parent = Template
 Y.BackgroundColor3 = Color3.fromRGB(25, 29, 38)
-Y.BackgroundTransparency = 0.500
+Y.BackgroundTransparency = 0.500 * transpar
 Y.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Y.BorderSizePixel = 0
 Y.Position = UDim2.new(0.699999988, 0, 0.74000001, 0)
@@ -1320,7 +1329,7 @@ UICorner_2.Parent = Y
 N.Name = "N"
 N.Parent = Template
 N.BackgroundColor3 = Color3.fromRGB(25, 29, 38)
-N.BackgroundTransparency = 0.500
+N.BackgroundTransparency = 0.500 * transpar
 N.BorderColor3 = Color3.fromRGB(0, 0, 0)
 N.BorderSizePixel = 0
 N.Position = UDim2.new(0.100000001, 0, 0.74000001, 0)
@@ -1361,8 +1370,11 @@ notiflib.Notify = function(header,details,time,callback,data)
 		notif.N.Visible = false
 	end
 	local script = Instance.new("LocalScript", notif)
-	local BlurIntensity = 0.4
-
+	local BlurIntensity = getgenv().BlurIntes task.spawn(function()
+		while task.wait() do
+			BlurIntensity = getgenv().BlurIntes
+		end
+	end)
 	local RunService = game:GetService('RunService')
 	local camera = workspace.CurrentCamera
 	local MTREL = "Glass"
@@ -1564,10 +1576,10 @@ notiflib.Notify = function(header,details,time,callback,data)
 	stroke.Thickness = 1
 	stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	stroke.LineJoinMode = Enum.LineJoinMode.Round
-	stroke.Transparency = 0.9
+	stroke.Transparency = 0.9 * transpar
 	local s2 = stroke:Clone()
 	s2.Parent = notif.Y
-	s2.Transparency = 0.8
+	s2.Transparency = 0.8 * transpar
 	local s3 = s2:Clone()
 	s3.Parent = notif.N
 	notif.Visible = true
@@ -1577,9 +1589,9 @@ notiflib.Notify = function(header,details,time,callback,data)
 	sound.Looped = false
 	sound.Playing = true
 	game:GetService("TweenService"):Create(DepthOfField,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {NearIntensity=BlurIntensity}):Play()
-	game:GetService("TweenService"):Create(notif,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.4}):Play()
-	game:GetService("TweenService"):Create(notif.Y,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.5}):Play()
-	game:GetService("TweenService"):Create(notif.N,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.5}):Play()
+	game:GetService("TweenService"):Create(notif,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.4 * transpar}):Play()
+	game:GetService("TweenService"):Create(notif.Y,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.5 * transpar}):Play()
+	game:GetService("TweenService"):Create(notif.N,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.5 * transpar}):Play()
 	game:GetService("TweenService"):Create(notif.Y,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=0}):Play()
 	game:GetService("TweenService"):Create(notif.N,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=0}):Play()
 	game:GetService("TweenService"):Create(notif.Main,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=0}):Play()
