@@ -1495,7 +1495,11 @@ notiflib.Notify = function(header,details,time,callback,data)
 		end
 		add(frame)
 	end
+	local canido = true
 	local function UpdateOrientation(fetchProps)
+		if canido == false then
+			return
+		end
 		local trans = 0.99
 		if visible == false then
 			trans = 1
@@ -1589,6 +1593,8 @@ notiflib.Notify = function(header,details,time,callback,data)
 		game:GetService("TweenService"):Create(notif.Main,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=1}):Play()
 		game:GetService("TweenService"):Create(notif.Secondary,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=1}):Play()
 		wait(0.3)
+		canido = false
+		wait(0.1)
 		notif:Destroy()
 		sound:Destroy()
 	end
