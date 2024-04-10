@@ -124,7 +124,7 @@ TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
 TextLabel.Size = UDim2.new(0, 200, 0, 40)
-TextLabel.Font = Enum.Font.Ubuntu
+TextLabel.FontFace = Font.new("rbxassetid://11702779409")
 TextLabel.Text = "Sky Hub"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 25.000
@@ -142,7 +142,7 @@ Minimize.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Minimize.BorderSizePixel = 0
 Minimize.Position = UDim2.new(0, 470, 0, 0)
 Minimize.Size = UDim2.new(0, 40, 0, 40)
-Minimize.Font = Enum.Font.Ubuntu
+Minimize.FontFace = Font.new("rbxassetid://11702779409")
 Minimize.Text = ""
 Minimize.TextColor3 = Color3.fromRGB(0, 0, 0)
 Minimize.TextSize = 14.000
@@ -179,7 +179,7 @@ Close.BorderSizePixel = 0
 Close.Position = UDim2.new(0, 510, 0, 0)
 Close.Rotation = 1.000
 Close.Size = UDim2.new(0, 40, 0, 40)
-Close.Font = Enum.Font.Ubuntu
+Close.FontFace = Font.new("rbxassetid://11702779409")
 Close.Text = ""
 Close.TextColor3 = Color3.fromRGB(0, 0, 0)
 Close.TextSize = 14.000
@@ -256,7 +256,7 @@ Toggle.BorderSizePixel = 0
 Toggle.Position = UDim2.new(0.0395348854, 0, 0.0769233704, 0)
 Toggle.Size = UDim2.new(0, 33, 0, 33)
 Toggle.AutoButtonColor = false
-Toggle.Font = Enum.Font.Ubuntu
+Toggle.FontFace = Font.new("rbxassetid://11702779409")
 Toggle.Text = ""
 Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
 Toggle.TextSize = 30.000
@@ -272,7 +272,7 @@ Desc.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Desc.BorderSizePixel = 0
 Desc.Position = UDim2.new(0.274418592, 0, 0.174999997, 0)
 Desc.Size = UDim2.new(0, 145, 0, 26)
-Desc.Font = Enum.Font.Ubuntu
+Desc.FontFace = Font.new("rbxassetid://11702779409")
 Desc.Text = "Checkmark"
 Desc.TextColor3 = Color3.fromRGB(255, 255, 255)
 Desc.TextScaled = true
@@ -296,7 +296,7 @@ Input.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Input.BorderSizePixel = 0
 Input.Position = UDim2.new(0.150999993, 0, 0.0769999996, 0)
 Input.Size = UDim2.new(0, 150, 0, 33)
-Input.Font = Enum.Font.Ubuntu
+Input.FontFace = Font.new("rbxassetid://11702779409")
 Input.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
 Input.PlaceholderText = "Placeholder"
 Input.Text = ""
@@ -323,7 +323,7 @@ Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button.BorderSizePixel = 0
 Button.Position = UDim2.new(0.151162788, 0, 0.0769233704, 0)
 Button.Size = UDim2.new(0, 150, 0, 33)
-Button.Font = Enum.Font.Ubuntu
+Button.FontFace = Font.new("rbxassetid://11702779409")
 Button.TextColor3 = Color3.fromRGB(255, 255, 255)
 Button.TextSize = 18.000
 
@@ -346,7 +346,7 @@ Section.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Section.BorderSizePixel = 0
 Section.Position = UDim2.new(0.0500000007, 0, 0.25, 0)
 Section.Size = UDim2.new(0.899999976, 0, 0.5, 0)
-Section.Font = Enum.Font.Ubuntu
+Section.FontFace = Font.new("rbxassetid://11702779409")
 Section.Text = "Section"
 Section.TextColor3 = Color3.fromRGB(255, 255, 255)
 Section.TextScaled = true
@@ -379,7 +379,7 @@ Max.BorderSizePixel = 0
 Max.Position = UDim2.new(0.5, 0, 0.5, 0)
 Max.Size = UDim2.new(0.75, 0, 0.400000006, 0)
 Max.AutoButtonColor = false
-Max.Font = Enum.Font.Ubuntu
+Max.FontFace = Font.new("rbxassetid://11702779409")
 Max.Text = ""
 Max.TextColor3 = Color3.fromRGB(0, 0, 0)
 Max.TextSize = 14.000
@@ -415,7 +415,7 @@ Button_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button_2.BorderSizePixel = 0
 Button_2.Position = UDim2.new(0.151162788, 0, 0.0769233704, 0)
 Button_2.Size = UDim2.new(0, 150, 0, 33)
-Button_2.Font = Enum.Font.Ubuntu
+Button_2.FontFace = Font.new("rbxassetid://11702779409")
 Button_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 Button_2.TextSize = 18.000
 
@@ -450,7 +450,7 @@ Button_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button_3.BorderSizePixel = 0
 Button_3.Position = UDim2.new(0.151162788, 0, 0.0769233704, 0)
 Button_3.Size = UDim2.new(0, 150, 0, 33)
-Button_3.Font = Enum.Font.Ubuntu
+Button_3.FontFace = Font.new("rbxassetid://11702779409")
 Button_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 Button_3.TextSize = 18.000
 
@@ -475,7 +475,7 @@ Button_4.BackgroundTransparency = 1.000
 Button_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button_4.BorderSizePixel = 0
 Button_4.Size = UDim2.new(1, 0, 1, 0)
-Button_4.Font = Enum.Font.Ubuntu
+Button_4.FontFace = Font.new("rbxassetid://11702779409")
 Button_4.Text = ""
 Button_4.TextColor3 = Color3.fromRGB(255, 255, 255)
 Button_4.TextSize = 20.000
@@ -487,7 +487,7 @@ TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel_2.BorderSizePixel = 0
 TextLabel_2.Position = UDim2.new(0.333333343, 0, 0.174999997, 0)
 TextLabel_2.Size = UDim2.new(0, 80, 0, 26)
-TextLabel_2.Font = Enum.Font.Ubuntu
+TextLabel_2.FontFace = Font.new("rbxassetid://11702779409")
 TextLabel_2.Text = "Tab 1"
 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.TextScaled = true
@@ -537,15 +537,15 @@ local function HLBC_fake_script() -- ImageLabel.Script
 		Credits: Original Creator @googleUSE, Moder and automater thingy majingy @ImSnox
 		
 		]]
-	
+
 	local BlurIntensity = 0.4
-	
+
 	local RunService = game:GetService('RunService')
 	local camera = workspace.CurrentCamera
 	local MTREL = "Glass"
 	local binds = {}
 	local root = Instance.new('Folder', camera)
-	
+
 	local DepthOfField = Instance.new('DepthOfFieldEffect', game:GetService('Lighting'))
 	local frame = script.Parent
 	DepthOfField.FarIntensity = 0
@@ -554,7 +554,7 @@ local function HLBC_fake_script() -- ImageLabel.Script
 	DepthOfField.NearIntensity = BlurIntensity
 	DepthOfField.Name = " "
 	root.Name = 'BlurSnox'
-	
+
 	local GenUid; do -- Generate unique names for RenderStepped bindings
 		local id = 0
 		function GenUid()
@@ -562,7 +562,7 @@ local function HLBC_fake_script() -- ImageLabel.Script
 			return 'neon::'..tostring(id)
 		end
 	end
-	
+
 	do
 		local function IsNotNaN(x)
 			return x == x
@@ -573,11 +573,11 @@ local function HLBC_fake_script() -- ImageLabel.Script
 			continue = IsNotNaN(camera:ScreenPointToRay(0,0).Origin.x)
 		end
 	end
-	
+
 	local DrawQuad; do
 		local acos, max, pi, sqrt = math.acos, math.max, math.pi, math.sqrt
 		local sz = 0.2
-	
+
 		local function DrawTriangle(v1, v2, v3, p0, p1) -- I think Stravant wrote this function
 			local s1 = (v1 - v2).magnitude
 			local s2 = (v2 - v3).magnitude
@@ -591,35 +591,35 @@ local function HLBC_fake_script() -- ImageLabel.Script
 			elseif s3 == smax then
 				A, B, C = v3, v1, v2
 			end
-	
+
 			local para = ( (B-A).x*(C-A).x + (B-A).y*(C-A).y + (B-A).z*(C-A).z ) / (A-B).magnitude
 			local perp = sqrt((C-A).magnitude^2 - para*para)
 			local dif_para = (A - B).magnitude - para
-	
+
 			local st = CFrame.new(B, A)
 			local za = CFrame.Angles(pi/2,0,0)
-	
+
 			local cf0 = st
-	
+
 			local Top_Look = (cf0 * za).lookVector
 			local Mid_Point = A + CFrame.new(A, B).LookVector * para
 			local Needed_Look = CFrame.new(Mid_Point, C).LookVector
 			local dot = Top_Look.x*Needed_Look.x + Top_Look.y*Needed_Look.y + Top_Look.z*Needed_Look.z
-	
+
 			local ac = CFrame.Angles(0, 0, acos(dot))
-	
+
 			cf0 = cf0 * ac
 			if ((cf0 * za).lookVector - Needed_Look).magnitude > 0.01 then
 				cf0 = cf0 * CFrame.Angles(0, 0, -2*acos(dot))
 			end
 			cf0 = cf0 * CFrame.new(0, perp/2, -(dif_para + para/2))
-	
+
 			local cf1 = st * ac * CFrame.Angles(0, pi, 0)
 			if ((cf1 * za).lookVector - Needed_Look).magnitude > 0.01 then
 				cf1 = cf1 * CFrame.Angles(0, 0, 2*acos(dot))
 			end
 			cf1 = cf1 * CFrame.new(0, perp/2, dif_para/2)
-	
+
 			if not p0 then
 				p0 = Instance.new('Part')
 				p0.Color = Color3.fromRGB(91, 128, 130)
@@ -637,32 +637,32 @@ local function HLBC_fake_script() -- ImageLabel.Script
 			end
 			p0.WedgeMesh.Scale = Vector3.new(0, perp/sz, para/sz)
 			p0.CFrame = cf0
-	
+
 			if not p1 then
 				p1 = p0:clone()
 			end
 			p1.WedgeMesh.Scale = Vector3.new(0, perp/sz, dif_para/sz)
 			p1.CFrame = cf1
-	
+
 			return p0, p1
 		end
-	
+
 		function DrawQuad(v1, v2, v3, v4, parts)
 			parts[1], parts[2] = DrawTriangle(v1, v2, v3, parts[1], parts[2])
 			parts[3], parts[4] = DrawTriangle(v3, v2, v4, parts[3], parts[4])
 		end
 	end
-	
+
 	if binds[frame] then
 		return binds[frame].parts
 	end
-	
+
 	local uid = GenUid()
 	local parts = {}
 	local visible = true
 	local f = Instance.new('Folder', root)
 	f.Name = frame.Name
-	
+
 	local parents = {}
 	do
 		local function add(child)
@@ -673,7 +673,7 @@ local function HLBC_fake_script() -- ImageLabel.Script
 		end
 		add(frame)
 	end
-	
+
 	local function UpdateOrientation(fetchProps)
 		if close == true then
 			return
@@ -687,7 +687,7 @@ local function HLBC_fake_script() -- ImageLabel.Script
 			--BrickColor = BrickColor.new('Institutional white');
 		}
 		local zIndex = 1 - 0.05*frame.ZIndex
-	
+
 		local tl, br = frame.AbsolutePosition, frame.AbsolutePosition + frame.AbsoluteSize
 		local tr, bl = Vector2.new(br.x, tl.y), Vector2.new(tl.x, br.y)
 		do
@@ -723,23 +723,23 @@ local function HLBC_fake_script() -- ImageLabel.Script
 			end
 		end
 	end
-	
+
 	UpdateOrientation(true)
 	RunService:BindToRenderStep(uid, 2000, UpdateOrientation)
 	local UserInputService = game:GetService("UserInputService")
 	local runService = (game:GetService("RunService"));
-	
+
 	local gui = script.Parent
-	
+
 	local dragging
 	local dragInput
 	local dragStart
 	local startPos
-	
+
 	local function Lerp(a, b, m)
 		return a + (b - a) * m
 	end;
-	
+
 	local lastMousePos
 	local lastGoalPos
 	local DRAG_SPEED = (8); -- // The speed of the UI darg.
@@ -749,21 +749,21 @@ local function HLBC_fake_script() -- ImageLabel.Script
 			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
 			return 
 		end;
-	
+
 		local delta = (lastMousePos - UserInputService:GetMouseLocation())
 		local xGoal = (startPos.X.Offset - delta.X);
 		local yGoal = (startPos.Y.Offset - delta.Y);
 		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
 		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
 	end;
-	
+
 	gui.TopBar.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 			dragging = true
 			dragStart = input.Position
 			startPos = gui.Position
 			lastMousePos = UserInputService:GetMouseLocation()
-	
+
 			input.Changed:Connect(function()
 				if input.UserInputState == Enum.UserInputState.End then
 					dragging = false
@@ -771,18 +771,18 @@ local function HLBC_fake_script() -- ImageLabel.Script
 			end)
 		end
 	end)
-	
+
 	gui.TopBar.InputChanged:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 			dragInput = input
 		end
 	end)
-	
+
 	runService.Heartbeat:Connect(Update)
 	script.Parent.TopBar.Minimize.Activated:Connect(function()
 		if IsOnMobile then
 			Sky["DaIcon"].Visible = true
-    		visible = false
+			visible = false
 		else
 			visible = false
 		end
@@ -815,7 +815,7 @@ local function HLBC_fake_script() -- ImageLabel.Script
 			script.Parent.Visible = visible
 		end
 	end)
-	
+
 		--[[
 		local lib = require(script.Parent.Lib)
 		local tab = lib.AddTab("Tabs are over rated")
