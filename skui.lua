@@ -1595,6 +1595,7 @@ notiflib.Notify = function(header,details,time,callback,data)
 		wait(0.3)
 		canido = false
 		wait(0.1)
+		root:Destroy()
 		notif:Destroy()
 		sound:Destroy()
 	end
