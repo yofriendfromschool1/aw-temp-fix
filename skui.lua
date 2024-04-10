@@ -1221,4 +1221,397 @@ lib.CreateLib = function(name,smth)
 	end
 	return toreturn
 end
+local NotifLib = Instance.new("ScreenGui")
+local Center = Instance.new("Frame")
+local Holder = Instance.new("Frame")
+local Template = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Main = Instance.new("TextLabel")
+local Secondary = Instance.new("TextLabel")
+local Y = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local N = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UIListLayout = Instance.new("UIListLayout")
+
+NotifLib.Name = "NotifLib"
+NotifLib.Parent = game.CoreGui
+NotifLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Center.Name = "Center"
+Center.Parent = NotifLib
+Center.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Center.BackgroundTransparency = 1.000
+Center.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Center.BorderSizePixel = 0
+Center.Position = UDim2.new(0.5, 0, 0, 0)
+Center.Size = UDim2.new(0, 1, 0, 1)
+
+Holder.Name = "Holder"
+Holder.Parent = Center
+Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Holder.BackgroundTransparency = 1.000
+Holder.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Holder.BorderSizePixel = 0
+Holder.Position = UDim2.new(-124, 0, 16, 0)
+Holder.Size = UDim2.new(0, 250, 0, 300)
+
+Template.Name = "Template"
+Template.Parent = Holder
+Template.BackgroundColor3 = Color3.fromRGB(25, 29, 38)
+Template.BackgroundTransparency = 0.400
+Template.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Template.BorderSizePixel = 0
+Template.Position = UDim2.new(0, -124, 0, 16)
+Template.Size = UDim2.new(0, 250, 0, 100)
+Template.Visible = false
+
+UICorner.Parent = Template
+
+Main.Name = "Main"
+Main.Parent = Template
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BackgroundTransparency = 1.000
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.200000003, 0, 0.0900000036, 0)
+Main.Size = UDim2.new(0, 150, 0, 25)
+Main.Font = Enum.Font.Unknown
+Main.Text = "Lorem Ipsum"
+Main.TextColor3 = Color3.fromRGB(255, 255, 255)
+Main.TextScaled = true
+Main.TextSize = 14.000
+Main.TextWrapped = true
+
+Secondary.Name = "Secondary"
+Secondary.Parent = Template
+Secondary.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Secondary.BackgroundTransparency = 1.000
+Secondary.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Secondary.BorderSizePixel = 0
+Secondary.Position = UDim2.new(0.100000001, 0, 0.340000004, 0)
+Secondary.Size = UDim2.new(0, 200, 0, 40)
+Secondary.Font = Enum.Font.Unknown
+Secondary.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat velit arcu, vitae bibendum risus fringilla ac."
+Secondary.TextColor3 = Color3.fromRGB(255, 255, 255)
+Secondary.TextScaled = true
+Secondary.TextSize = 14.000
+Secondary.TextWrapped = true
+
+Y.Name = "Y"
+Y.Parent = Template
+Y.BackgroundColor3 = Color3.fromRGB(25, 29, 38)
+Y.BackgroundTransparency = 0.500
+Y.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Y.BorderSizePixel = 0
+Y.Position = UDim2.new(0.699999988, 0, 0.74000001, 0)
+Y.Size = UDim2.new(0, 50, 0, 20)
+Y.Font = Enum.Font.Unknown
+Y.Text = "Yes"
+Y.TextColor3 = Color3.fromRGB(255, 255, 255)
+Y.TextScaled = true
+Y.TextSize = 14.000
+Y.TextWrapped = true
+
+UICorner_2.CornerRadius = UDim.new(0, 5)
+UICorner_2.Parent = Y
+
+N.Name = "N"
+N.Parent = Template
+N.BackgroundColor3 = Color3.fromRGB(25, 29, 38)
+N.BackgroundTransparency = 0.500
+N.BorderColor3 = Color3.fromRGB(0, 0, 0)
+N.BorderSizePixel = 0
+N.Position = UDim2.new(0.100000001, 0, 0.74000001, 0)
+N.Size = UDim2.new(0, 50, 0, 20)
+N.Font = Enum.Font.Unknown
+N.Text = "No"
+N.TextColor3 = Color3.fromRGB(255, 255, 255)
+N.TextScaled = true
+N.TextSize = 14.000
+N.TextWrapped = true
+
+UICorner_3.CornerRadius = UDim.new(0, 5)
+UICorner_3.Parent = N
+
+UIListLayout.Parent = Holder
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 5)
+
+Main.FontFace = Font.new("rbxassetid://11702779409")
+Secondary.FontFace = Font.new("rbxassetid://11702779409")
+Y.FontFace = Font.new("rbxassetid://11702779409")
+N.FontFace = Font.new("rbxassetid://11702779409")
+
+local notiflib = {}
+local temp = Template
+local core = Holder
+
+notiflib.Notify = function(header,details,time,callback,data)
+	if not header then error("No Header Text...") end
+	if typeof(header) ~= "string" then error("Header Text MUST be a string!") end
+	if not details then error("No Detail Text...") end
+	if typeof(details) ~= "string" then error("Detail Text MUST be a string!") end
+	local notif = temp:Clone()
+	notif.Name = "Notification"
+	notif.Parent = core
+	if not data then
+		notif.Y.Visible = false
+		notif.N.Visible = false
+	end
+	local script = Instance.new("LocalScript", notif)
+	local BlurIntensity = 0.4
+
+	local RunService = game:GetService('RunService')
+	local camera = workspace.CurrentCamera
+	local MTREL = "Glass"
+	local binds = {}
+	local root = Instance.new('Folder', camera)
+
+	local DepthOfField = Instance.new('DepthOfFieldEffect', game:GetService('Lighting'))
+	local frame = notif
+	DepthOfField.FarIntensity = 0
+	DepthOfField.FocusDistance = 51.6
+	DepthOfField.InFocusRadius = 50
+	DepthOfField.NearIntensity = 0--BlurIntensity
+	DepthOfField.Name = " "
+	root.Name = 'BlurSnox'
+
+	local GenUid; do -- Generate unique names for RenderStepped bindings
+		local id = 0
+		function GenUid()
+			id = id + 1
+			return 'neon::'..tostring(id)
+		end
+	end
+
+	do
+		local function IsNotNaN(x)
+			return x == x
+		end
+		local continue = IsNotNaN(camera:ScreenPointToRay(0,0).Origin.x)
+		while not continue do
+			RunService.RenderStepped:wait()
+			continue = IsNotNaN(camera:ScreenPointToRay(0,0).Origin.x)
+		end
+	end
+
+	local DrawQuad; do
+		local acos, max, pi, sqrt = math.acos, math.max, math.pi, math.sqrt
+		local sz = 0.2
+
+		local function DrawTriangle(v1, v2, v3, p0, p1) -- I think Stravant wrote this function
+			local s1 = (v1 - v2).magnitude
+			local s2 = (v2 - v3).magnitude
+			local s3 = (v3 - v1).magnitude
+			local smax = max(s1, s2, s3)
+			local A, B, C
+			if s1 == smax then
+				A, B, C = v1, v2, v3
+			elseif s2 == smax then
+				A, B, C = v2, v3, v1
+			elseif s3 == smax then
+				A, B, C = v3, v1, v2
+			end
+
+			local para = ( (B-A).x*(C-A).x + (B-A).y*(C-A).y + (B-A).z*(C-A).z ) / (A-B).magnitude
+			local perp = sqrt((C-A).magnitude^2 - para*para)
+			local dif_para = (A - B).magnitude - para
+
+			local st = CFrame.new(B, A)
+			local za = CFrame.Angles(pi/2,0,0)
+
+			local cf0 = st
+
+			local Top_Look = (cf0 * za).lookVector
+			local Mid_Point = A + CFrame.new(A, B).LookVector * para
+			local Needed_Look = CFrame.new(Mid_Point, C).LookVector
+			local dot = Top_Look.x*Needed_Look.x + Top_Look.y*Needed_Look.y + Top_Look.z*Needed_Look.z
+
+			local ac = CFrame.Angles(0, 0, acos(dot))
+
+			cf0 = cf0 * ac
+			if ((cf0 * za).lookVector - Needed_Look).magnitude > 0.01 then
+				cf0 = cf0 * CFrame.Angles(0, 0, -2*acos(dot))
+			end
+			cf0 = cf0 * CFrame.new(0, perp/2, -(dif_para + para/2))
+
+			local cf1 = st * ac * CFrame.Angles(0, pi, 0)
+			if ((cf1 * za).lookVector - Needed_Look).magnitude > 0.01 then
+				cf1 = cf1 * CFrame.Angles(0, 0, 2*acos(dot))
+			end
+			cf1 = cf1 * CFrame.new(0, perp/2, dif_para/2)
+
+			if not p0 then
+				p0 = Instance.new('Part')
+				p0.Color = Color3.fromRGB(91, 128, 130)
+				p0.FormFactor = 'Custom'
+				p0.TopSurface = 0
+				p0.BottomSurface = 0
+				p0.Anchored = true
+				p0.CanCollide = false
+				p0.CastShadow = false
+				p0.Material = MTREL
+				p0.Size = Vector3.new(sz, sz, sz)
+				local mesh = Instance.new('SpecialMesh', p0)
+				mesh.MeshType = 2
+				mesh.Name = 'WedgeMesh'
+			end
+			p0.WedgeMesh.Scale = Vector3.new(0, perp/sz, para/sz)
+			p0.CFrame = cf0
+
+			if not p1 then
+				p1 = p0:clone()
+			end
+			p1.WedgeMesh.Scale = Vector3.new(0, perp/sz, dif_para/sz)
+			p1.CFrame = cf1
+
+			return p0, p1
+		end
+
+		function DrawQuad(v1, v2, v3, v4, parts)
+			parts[1], parts[2] = DrawTriangle(v1, v2, v3, parts[1], parts[2])
+			parts[3], parts[4] = DrawTriangle(v3, v2, v4, parts[3], parts[4])
+		end
+	end
+
+	if binds[frame] then
+		return binds[frame].parts
+	end
+
+	local uid = GenUid()
+	local parts = {}
+	local visible = true
+	local f = Instance.new('Folder', root)
+	f.Name = frame.Name
+
+	local parents = {}
+	do
+		local function add(child)
+			if child:IsA'GuiObject' then
+				parents[#parents + 1] = child
+				add(child.Parent)
+			end
+		end
+		add(frame)
+	end
+	local function UpdateOrientation(fetchProps)
+		local trans = 0.99
+		if visible == false then
+			trans = 1
+		end
+		local properties = {
+			Transparency = trans;
+			--BrickColor = BrickColor.new('Institutional white');
+		}
+		local zIndex = 1 - 0.05*frame.ZIndex
+
+		local tl, br = frame.AbsolutePosition, frame.AbsolutePosition + frame.AbsoluteSize
+		local tr, bl = Vector2.new(br.x, tl.y), Vector2.new(tl.x, br.y)
+		do
+			local rot = 0;
+			for _, v in ipairs(parents) do
+				rot = rot + v.Rotation
+			end
+			if rot ~= 0 and rot%180 ~= 0 then
+				local mid = tl:lerp(br, 0.5)
+				local s, c = math.sin(math.rad(rot)), math.cos(math.rad(rot))
+				local vec = tl
+				tl = Vector2.new(c*(tl.x - mid.x) - s*(tl.y - mid.y), s*(tl.x - mid.x) + c*(tl.y - mid.y)) + mid
+				tr = Vector2.new(c*(tr.x - mid.x) - s*(tr.y - mid.y), s*(tr.x - mid.x) + c*(tr.y - mid.y)) + mid
+				bl = Vector2.new(c*(bl.x - mid.x) - s*(bl.y - mid.y), s*(bl.x - mid.x) + c*(bl.y - mid.y)) + mid
+				br = Vector2.new(c*(br.x - mid.x) - s*(br.y - mid.y), s*(br.x - mid.x) + c*(br.y - mid.y)) + mid
+			end
+		end
+		DrawQuad(
+			camera:ScreenPointToRay(tl.x, tl.y, zIndex).Origin, 
+			camera:ScreenPointToRay(tr.x, tr.y, zIndex).Origin, 
+			camera:ScreenPointToRay(bl.x, bl.y, zIndex).Origin, 
+			camera:ScreenPointToRay(br.x, br.y, zIndex).Origin, 
+			parts
+		)
+		if fetchProps then
+			for _, pt in pairs(parts) do
+				pt.Parent = f
+			end
+			for propName, propValue in pairs(properties) do
+				for _, pt in pairs(parts) do
+					pt[propName] = propValue
+				end
+			end
+		end
+	end
+
+	UpdateOrientation(true)
+	RunService:BindToRenderStep(uid, 2000, UpdateOrientation)
+	notif.Transparency = 1
+	notif.Y.Transparency = 1
+	notif.N.Transparency = 1
+	notif.Y.TextTransparency = 1
+	notif.N.TextTransparency = 1
+	notif.Main.TextTransparency = 1
+	notif.Secondary.TextTransparency = 1
+	visible = true
+	notif.Main.Text = header
+	notif.Secondary.Text = details
+	local stroke = Instance.new("UIStroke", notif)
+	stroke.Color = Color3.fromRGB(255,255,255)
+	stroke.Thickness = 1
+	stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	stroke.LineJoinMode = Enum.LineJoinMode.Round
+	stroke.Transparency = 0.9
+	local s2 = stroke:Clone()
+	s2.Parent = notif.Y
+	s2.Transparency = 0.8
+	local s3 = s2:Clone()
+	s3.Parent = notif.N
+	notif.Visible = true
+	local sound = Instance.new("Sound", workspace)
+	sound.SoundId = "rbxassetid://4612373884"
+	sound.Volume = 2
+	sound.Looped = false
+	sound.Playing = true
+	game:GetService("TweenService"):Create(DepthOfField,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {NearIntensity=BlurIntensity}):Play()
+	game:GetService("TweenService"):Create(notif,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.4}):Play()
+	game:GetService("TweenService"):Create(notif.Y,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.5}):Play()
+	game:GetService("TweenService"):Create(notif.N,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.5}):Play()
+	game:GetService("TweenService"):Create(notif.Y,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=0}):Play()
+	game:GetService("TweenService"):Create(notif.N,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=0}):Play()
+	game:GetService("TweenService"):Create(notif.Main,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=0}):Play()
+	game:GetService("TweenService"):Create(notif.Secondary,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=0}):Play()
+	local function dest()
+		game:GetService("TweenService"):Create(DepthOfField,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {NearIntensity=BlurIntensity}):Play()
+		game:GetService("TweenService"):Create(notif,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=1}):Play()
+		game:GetService("TweenService"):Create(notif.Y,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=1}):Play()
+		game:GetService("TweenService"):Create(notif.N,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=1}):Play()
+		game:GetService("TweenService"):Create(notif.Y,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=1}):Play()
+		game:GetService("TweenService"):Create(notif.N,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=1}):Play()
+		game:GetService("TweenService"):Create(notif.Main,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=1}):Play()
+		game:GetService("TweenService"):Create(notif.Secondary,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=1}):Play()
+		wait(0.3)
+		notif:Destroy()
+		sound:Destroy()
+	end
+	if data then
+		notif.N.Text = data[1]
+		notif.Y.Text = data[2]
+		local h = false
+		notif.N.Activated:Connect(function()
+			if h == false then
+				h = true
+				callback(false)
+				dest()
+			end
+		end)
+		notif.Y.Activated:Connect(function()
+			if h == false then
+				h = true
+				callback(true)
+				dest()
+			end
+		end)
+	end
+	delay(time,dest)
+end
+lib.Notify = notiflib.Notify
 return lib
