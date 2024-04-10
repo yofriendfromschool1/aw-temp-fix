@@ -1,3 +1,4 @@
+getgenv().SkyhubKeybind = Enum.KeyCode.RightControl
 local ScreenGui = Instance.new("ScreenGui")
 local ImageLabel = Instance.new("ImageLabel")
 local UICorner = Instance.new("UICorner")
@@ -805,7 +806,7 @@ local function HLBC_fake_script() -- ImageLabel.Script
 				end
 			end)
 		else
-			if inp.KeyCode == Enum.KeyCode.RightControl then
+			if inp.KeyCode == getgenv().SkyhubKeybind then
 				visible = true
 			end
 		end
