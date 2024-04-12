@@ -99,13 +99,6 @@ ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageLabel.Parent = ScreenGui
 ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-getgenv().SkyT = 1
-local transpar = getgenv().SkyT
-task.spawn(function()
-	while task.wait() do
-		transpar = getgenv().Skyt
-	end
-end)
 ImageLabel.BackgroundTransparency = 1
 ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ImageLabel.BorderSizePixel = 0
@@ -114,14 +107,14 @@ ImageLabel.Position = UDim2.new(0.180995479, 0, 0.2781955, 0)
 ImageLabel.Size = UDim2.new(0, 550, 0, 300)
 ImageLabel.Image = "http://www.roblox.com/asset/?id=16710334936"
 ImageLabel.ImageColor3 = Color3.fromRGB(89, 89, 89)
-ImageLabel.ImageTransparency = 0.150 * transpar
+ImageLabel.ImageTransparency = 0.150
 
 UICorner.Parent = ImageLabel
 
 TopBar.Name = "TopBar"
 TopBar.Parent = ImageLabel
 TopBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TopBar.BackgroundTransparency = 0.900 * transpar
+TopBar.BackgroundTransparency = 0.900
 TopBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TopBar.BorderSizePixel = 0
 TopBar.Size = UDim2.new(1, 0, 0, 40)
@@ -256,7 +249,7 @@ TTemp.Size = UDim2.new(0, 100, 0, 100)
 Toggle.Name = "Toggle"
 Toggle.Parent = TTemp
 Toggle.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Toggle.BackgroundTransparency = 0.750 * transpar
+Toggle.BackgroundTransparency = 0.750
 Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Toggle.BorderSizePixel = 0
 Toggle.Position = UDim2.new(0.0395348854, 0, 0.0769233704, 0)
@@ -297,7 +290,7 @@ ITemp.Size = UDim2.new(0, 100, 0, 100)
 Input.Name = "Input"
 Input.Parent = ITemp
 Input.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Input.BackgroundTransparency = 0.750 * transpar
+Input.BackgroundTransparency = 0.750
 Input.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Input.BorderSizePixel = 0
 Input.Position = UDim2.new(0.150999993, 0, 0.0769999996, 0)
@@ -324,7 +317,7 @@ BTemp.Size = UDim2.new(0, 100, 0, 100)
 Button.Name = "Button"
 Button.Parent = BTemp
 Button.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Button.BackgroundTransparency = 0.750 * transpar
+Button.BackgroundTransparency = 0.750
 Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button.BorderSizePixel = 0
 Button.Position = UDim2.new(0.151162788, 0, 0.0769233704, 0)
@@ -380,7 +373,7 @@ Max.Name = "Max"
 Max.Parent = Slide
 Max.AnchorPoint = Vector2.new(0.5, 0.5)
 Max.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Max.BackgroundTransparency = 0.500 * transpar
+Max.BackgroundTransparency = 0.500
 Max.BorderSizePixel = 0
 Max.Position = UDim2.new(0.5, 0, 0.5, 0)
 Max.Size = UDim2.new(0.75, 0, 0.400000006, 0)
@@ -416,7 +409,7 @@ DTemp.Size = UDim2.new(0, 100, 0, 100)
 Button_2.Name = "Button"
 Button_2.Parent = DTemp
 Button_2.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Button_2.BackgroundTransparency = 0.750 * transpar
+Button_2.BackgroundTransparency = 0.750
 Button_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Button_2.BorderSizePixel = 0
 Button_2.Position = UDim2.new(0.151162788, 0, 0.0769233704, 0)
@@ -432,7 +425,7 @@ Drop.Name = "Drop"
 Drop.Parent = Button_2
 Drop.Active = true
 Drop.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-Drop.BackgroundTransparency = 0.750 * transpar
+Drop.BackgroundTransparency = 0.750
 Drop.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Drop.BorderSizePixel = 0
 Drop.Position = UDim2.new(-0.00333333341, 0, 1.29818165, 0)
@@ -469,7 +462,7 @@ TabStuff.Parent = Script
 TabTemp.Name = "TabTemp"
 TabTemp.Parent = TabStuff
 TabTemp.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-TabTemp.BackgroundTransparency = 0.900 * transpar
+TabTemp.BackgroundTransparency = 0.900
 TabTemp.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabTemp.BorderSizePixel = 0
 TabTemp.Size = UDim2.new(0, 100, 0, 100)
@@ -688,6 +681,7 @@ local function HLBC_fake_script() -- ImageLabel.Script
 		if close == true then
 			return
 		end
+		DepthOfField.NearIntensity = BlurIntensity
 		local trans = 0.99
 		if visible == false then
 			trans = 1
@@ -882,7 +876,7 @@ function AddToggle(name, text, callback, tab)
 			if enabled == false then
 				enabled = true
 				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {BackgroundColor3 = Color3.fromRGB(250,250,250)}):Play()
-				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {Transparency = 0.3 * transpar}):Play()
+				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {Transparency = 0.3}):Play()
 				deb = true
 				task.spawn(function()
 					wait(0.25)
@@ -891,7 +885,7 @@ function AddToggle(name, text, callback, tab)
 			else
 				enabled = false
 				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {BackgroundColor3 = Color3.fromRGB(29, 29, 29)}):Play()
-				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {Transparency = 0.75 * transpar}):Play()
+				ts:Create(button.Toggle, TweenInfo.new(0.25,Enum.EasingStyle.Linear), {Transparency = 0.75}):Play()
 				deb = true
 				task.spawn(function()
 					wait(0.25)
@@ -1075,7 +1069,7 @@ local tabs = 0
 local uistroke = Instance.new("UIStroke", ui)
 uistroke.Color = Color3.fromRGB(0,0,0)
 uistroke.Thickness = 5
-uistroke.Transparency = 0.85 * transpar
+uistroke.Transparency = 0.85
 local tdeb = false
 function lib.AddTab(name, icon)
 	tabs += 1
@@ -1157,12 +1151,12 @@ function lib.AddTab(name, icon)
 				for i, v in pairs(v:GetDescendants()) do
 					if not v:IsA("UIGridLayout") and not v:IsA("UICorner") and not v:IsA("LocalScript") and not v:IsA("UIGradient") and not v:IsA("NumberValue") then
 						if v:IsA("TextLabel") or v:IsA("TextBox") or v:IsA("TextButton") then
-							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = v.Trans.Value * transpar}):Play()
-							ts:Create(v, TweenInfo.new(0.5), {TextTransparency = v.TTrans.Value * transpar}):Play()
+							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = v.Trans.Value}):Play()
+							ts:Create(v, TweenInfo.new(0.5), {TextTransparency = v.TTrans.Value}):Play()
 						elseif v:IsA("UIStroke") then
-							ts:Create(v, TweenInfo.new(0.5), {Transparency = v.STrans.Value * transpar}):Play()
+							ts:Create(v, TweenInfo.new(0.5), {Transparency = v.STrans.Value}):Play()
 						else
-							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = v.Trans.Value * transpar}):Play()
+							ts:Create(v, TweenInfo.new(0.5), {BackgroundTransparency = v.Trans.Value}):Play()
 						end
 					end
 				end
@@ -1214,13 +1208,28 @@ function lib.AddTab(name, icon)
 end
 local nam = "Sky Hub"
 task.spawn(function()
-	while task.wait(0.1) do
-		local currentTime = os.date("*t")
+    while task.wait(0.1) do
+        local currentTime = os.date("*t")
 
-		local hours, mins, secs = currentTime.hour, currentTime.min, currentTime.sec
+        local hours, mins = currentTime.hour, currentTime.min
+        if hours > 12 then
+            hours = currentTime.hour - 12
+            if mins < 10 then
+                mins = "0" .. currentTime.min .. " PM"
+            else
+                mins = currentTime.min .. " PM"
+            end
+        else
+            hours = currentTime.hour
+            if mins < 10 then
+                mins = "0" .. currentTime.min .. " AM"
+            else
+                mins = currentTime.min .. " AM"
+            end
+        end
 
-		ui.TopBar.TextLabel.Text = nam .. " - " .. string.format("%02d:%02d:%02d", hours, mins, secs)
-	end
+        ui.TopBar.TextLabel.Text = nam .. " - " .. hours .. ":" .. mins
+    end
 end)
 
 lib.CreateLib = function(name,smth)
@@ -1269,7 +1278,7 @@ Holder.Size = UDim2.new(0, 250, 0, 300)
 Template.Name = "Template"
 Template.Parent = Holder
 Template.BackgroundColor3 = Color3.fromRGB(25, 29, 38)
-Template.BackgroundTransparency = 0.400 * transpar
+Template.BackgroundTransparency = 0.400
 Template.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Template.BorderSizePixel = 0
 Template.Position = UDim2.new(0, -124, 0, 16)
@@ -1311,7 +1320,7 @@ Secondary.TextWrapped = true
 Y.Name = "Y"
 Y.Parent = Template
 Y.BackgroundColor3 = Color3.fromRGB(25, 29, 38)
-Y.BackgroundTransparency = 0.500 * transpar
+Y.BackgroundTransparency = 0.500
 Y.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Y.BorderSizePixel = 0
 Y.Position = UDim2.new(0.699999988, 0, 0.74000001, 0)
@@ -1329,7 +1338,7 @@ UICorner_2.Parent = Y
 N.Name = "N"
 N.Parent = Template
 N.BackgroundColor3 = Color3.fromRGB(25, 29, 38)
-N.BackgroundTransparency = 0.500 * transpar
+N.BackgroundTransparency = 0.500
 N.BorderColor3 = Color3.fromRGB(0, 0, 0)
 N.BorderSizePixel = 0
 N.Position = UDim2.new(0.100000001, 0, 0.74000001, 0)
@@ -1386,7 +1395,7 @@ notiflib.Notify = function(header,details,time,callback,data)
 	DepthOfField.FarIntensity = 0
 	DepthOfField.FocusDistance = 51.6
 	DepthOfField.InFocusRadius = 50
-	DepthOfField.NearIntensity = 0--BlurIntensity
+	DepthOfField.NearIntensity = BlurIntensity
 	DepthOfField.Name = " "
 	root.Name = 'BlurSnox'
 
@@ -1513,6 +1522,7 @@ notiflib.Notify = function(header,details,time,callback,data)
 		if canido == false then
 			return
 		end
+		DepthOfField.NearIntensity = BlurIntensity
 		local trans = 0.99
 		if visible == false then
 			trans = 1
@@ -1576,10 +1586,10 @@ notiflib.Notify = function(header,details,time,callback,data)
 	stroke.Thickness = 1
 	stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	stroke.LineJoinMode = Enum.LineJoinMode.Round
-	stroke.Transparency = 0.9 * transpar
+	stroke.Transparency = 0.9
 	local s2 = stroke:Clone()
 	s2.Parent = notif.Y
-	s2.Transparency = 0.8 * transpar
+	s2.Transparency = 0.8
 	local s3 = s2:Clone()
 	s3.Parent = notif.N
 	notif.Visible = true
@@ -1589,9 +1599,9 @@ notiflib.Notify = function(header,details,time,callback,data)
 	sound.Looped = false
 	sound.Playing = true
 	game:GetService("TweenService"):Create(DepthOfField,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {NearIntensity=BlurIntensity}):Play()
-	game:GetService("TweenService"):Create(notif,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.4 * transpar}):Play()
-	game:GetService("TweenService"):Create(notif.Y,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.5 * transpar}):Play()
-	game:GetService("TweenService"):Create(notif.N,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.5 * transpar}):Play()
+	game:GetService("TweenService"):Create(notif,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.4}):Play()
+	game:GetService("TweenService"):Create(notif.Y,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.5}):Play()
+	game:GetService("TweenService"):Create(notif.N,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {Transparency=0.5}):Play()
 	game:GetService("TweenService"):Create(notif.Y,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=0}):Play()
 	game:GetService("TweenService"):Create(notif.N,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=0}):Play()
 	game:GetService("TweenService"):Create(notif.Main,TweenInfo.new(0.3,Enum.EasingStyle.Quint), {TextTransparency=0}):Play()
