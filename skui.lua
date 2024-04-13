@@ -1214,7 +1214,7 @@ task.spawn(function()
         local hours, mins = currentTime.hour, currentTime.min
         if hours > 12 then
             hours = currentTime.hour - 12
-if mins < 10 then
+			if mins < 10 then
                 mins = "0" .. currentTime.min .. " AM"
             else
                 mins = currentTime.min .. " AM"
