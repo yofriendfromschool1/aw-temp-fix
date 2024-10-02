@@ -225,13 +225,7 @@ TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabList.BorderSizePixel = 0
 TabList.Position = UDim2.new(0, 0, 0.13333334, 0)
 TabList.Size = UDim2.new(0, 120, 0, 125)
-local function updateCanvasSize()
-    local contentSize = TabList.UIGridLayout.AbsoluteContentSize
-    TabList.CanvasSize = UDim2.new(0, contentSize.X, 0, contentSize.Y)
-end
-
-TabList.UIGridLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(updateCanvasSize)
-updateCanvasSize()
+TabList.CanvasSize = UDim2.new(0, 0, 1.5, 0)
 TabList.ScrollBarThickness = 0
 
 UIGridLayout.Parent = TabList
