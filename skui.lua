@@ -225,8 +225,12 @@ TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabList.BorderSizePixel = 0
 TabList.Position = UDim2.new(0, 0, 0.13333334, 0)
 TabList.Size = UDim2.new(0, 120, 0, 125)
-TabList.CanvasSize = UDim2.new(0, 0, 1.5, 0)
+--TabList.CanvasSize = UDim2.new(0, 0, 1.5, 0)
 TabList.ScrollBarThickness = 0
+local function updateTabListCanvasSize()
+    local totalHeight = #TabList:GetChildren() * 40 
+    TabList.CanvasSize = UDim2.new(0, 0, 0, totalHeight)
+end
 
 UIGridLayout.Parent = TabList
 UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -1086,6 +1090,7 @@ function lib.AddTab(name, icon)
 	tbutton.ImageLabel.Image = icon
 	tbutton.TextLabel.Text = name
 	local tholder = ui.Script.TabStuff.TempTab:Clone()
+	updateTabListCanvasSize()
 	tholder.Parent = ui.Tabs
 	tholder.Name = name
 	tholder.Visible = false
