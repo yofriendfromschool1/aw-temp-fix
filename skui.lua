@@ -219,7 +219,6 @@ UICorner_7.Parent = Frame_6
 
 TabList.Name = "TabList"
 TabList.Parent = ImageLabel
-TabList.ClipDescendants = false
 TabList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TabList.BackgroundTransparency = 1
 TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
