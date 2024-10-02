@@ -1,3 +1,5 @@
+-- Made by luau
+-- https://github.com/LLua-u/aw
 getgenv().SkyhubKeybind = Enum.KeyCode.RightControl
 local ScreenGui = Instance.new("ScreenGui")
 local ImageLabel = Instance.new("ImageLabel")
@@ -217,12 +219,13 @@ UICorner_7.Parent = Frame_6
 
 TabList.Name = "TabList"
 TabList.Parent = ImageLabel
+TabList.ClipDescendants = false
 TabList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TabList.BackgroundTransparency = 1
 TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabList.BorderSizePixel = 0
 TabList.Position = UDim2.new(0, 0, 0.13333334, 0)
-TabList.Size = UDim2.new(0, 120, 0, 251)
+TabList.Size = UDim2.new(0, 120, 0, 125)
 TabList.CanvasSize = UDim2.new(0, 0, 1.5, 0)
 TabList.ScrollBarThickness = 0
 
