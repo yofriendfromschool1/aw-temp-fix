@@ -224,8 +224,7 @@ TabList.BackgroundTransparency = 1
 TabList.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabList.BorderSizePixel = 0
 TabList.Position = UDim2.new(0, 0, 0.13333334, 0)
-TabList.Size = UDim2.new(0, 120, 0, 125)
---TabList.CanvasSize = UDim2.new(0, 0, 1.5, 0)
+TabList.Size = UDim2.new(0, 120, 0, 250)
 TabList.ScrollBarThickness = 0
 local function updateTabListCanvasSize()
     local totalHeight = #TabList:GetChildren() * 40 
